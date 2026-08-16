@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { SuggestionItem, TierId, TierCategory, TierItem } from '../types';
-import { MessageSquare, Upload, Link, Check, X, Trash2, Tag, Award, Sparkles, Send, User } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { SuggestionItem, TierId, TierCategory } from '../types';
+import { MessageSquare, Upload, Link, Check, X, Trash2, Send, User, Image, Sparkles } from 'lucide-react';
 
 interface SuggestionsForumProps {
   suggestions: SuggestionItem[];
@@ -21,16 +21,16 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
   onDenySuggestion,
   onDeleteSuggestion,
 }) => {
-  // Input Form States
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('');
-  const [targetTierId, setTargetTierId] = useState<TierId>('unranked');
+  const [targetTierId, setTargetTierId] = useState<TierId>('S');
   const [imageUrl, setImageUrl] = useState('');
   const [description, setDescription] = useState('');
-  const [activeTab, setActiveTab] = useState<'upload' | 'url'>('upload');
+  const [showUrlInput, setShowUrlInput] = useState(false);
   const [filter, setFilter] = useState<'all' | 'pending' | 'approved' | 'denied'>('all');
-  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -67,12 +67,12 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
       description: description.trim() || undefined,
     });
 
-    // Reset Form
+    // Reset fields cleanly
     setTitle('');
     setSubtitle('');
     setImageUrl('');
     setDescription('');
-    setIsFormOpen(false);
+    setShowUrlInput(false);
   };
 
   const filteredSuggestions = suggestions.filter((s) => {
@@ -90,165 +90,169 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
           </div>
           <div>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
-              Suggestions Chat Forum
+              Suggestions Forum
               <span style={{ fontSize: '0.72rem', padding: '2px 8px', borderRadius: '999px', background: '#1c1c21', border: '1px solid rgba(255,255,255,0.1)', color: '#ffd700' }}>
-                {suggestions.length}
+                {suggestions.length} Total
               </span>
             </h3>
-            <p style={{ fontSize: '0.75rem', color: '#888888', margin: 0 }}>Suggest players or items with custom images & bios!</p>
+            <p style={{ fontSize: '0.75rem', color: '#888888', margin: 0 }}>Suggest players or items — submit images, bios, and pick a tier!</p>
           </div>
         </div>
-
-        <button
-          onClick={() => setIsFormOpen(!isFormOpen)}
-          className="btn-primary"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-        >
-          {isFormOpen ? <X style={{ width: 14, height: 14 }} /> : <Send style={{ width: 14, height: 14 }} />}
-          {isFormOpen ? 'Close Form' : 'New Suggestion'}
-        </button>
       </div>
 
-      {/* Suggestion Submission Form (Chat input box) */}
-      {isFormOpen && (
-        <form onSubmit={handleSubmit} style={{ background: '#18181c', padding: '16px', borderRadius: '16px', border: '1px solid rgba(234, 179, 8, 0.3)', marginTop: '16px' }}>
-          <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#ffd700', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Sparkles style={{ width: 14, height: 14 }} /> Create Suggestion Message
-          </h4>
+      {/* Modern Frictionless Chat Bar Form */}
+      <form onSubmit={handleSubmit} style={{ background: '#18181c', padding: '16px', borderRadius: '16px', border: '1px solid rgba(234, 179, 8, 0.35)', marginTop: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.5)' }}>
+        <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#ffd700', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <Sparkles style={{ width: 14, height: 14 }} /> Post a Suggestion Message
+        </div>
 
-          <div className="form-row-2">
-            <div className="form-group">
-              <label><User style={{ width: 12, height: 12 }} /> Your Name / IGN (Optional)</label>
-              <input
-                type="text"
-                placeholder="e.g. envixyy, trinqfo, Anonymous"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
-              />
-            </div>
+        {/* Main Input Bar */}
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '10px' }}>
+          <input
+            type="text"
+            placeholder="Your Name (Optional)"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            style={{ width: '160px', flexShrink: 0 }}
+          />
+          <input
+            type="text"
+            placeholder="Player / Item Name *"
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+              if (!subtitle) setSubtitle(e.target.value);
+            }}
+            required
+            style={{ flex: 1, minWidth: '180px' }}
+          />
 
-            <div className="form-group">
-              <label>Player / Item Name *</label>
-              <input
-                type="text"
-                placeholder="e.g. Vamep, Netherite Sword"
-                value={title}
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                  if (!subtitle) setSubtitle(e.target.value);
-                }}
-                required
-              />
-            </div>
-          </div>
+          {/* Quick File Attach Button */}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            style={{ display: 'none' }}
+          />
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            className="btn-secondary"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.78rem', color: imageUrl ? '#06d6a0' : '#ffd700', borderColor: imageUrl ? '#06d6a0' : 'rgba(234,179,8,0.4)' }}
+            title="Attach Image File"
+          >
+            <Image style={{ width: 14, height: 14 }} />
+            {imageUrl ? '✓ Image Attached' : 'Attach Photo'}
+          </button>
 
-          <div className="form-row-2">
-            <div className="form-group">
-              <label>Suggested Tier Placement</label>
-              <select
-                value={targetTierId}
-                onChange={(e) => setTargetTierId(e.target.value as TierId)}
-              >
-                {categories.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.label} Tier
-                  </option>
-                ))}
-                <option value="unranked">Unranked Pool</option>
-              </select>
-            </div>
+          <button
+            type="button"
+            onClick={() => setShowUrlInput(!showUrlInput)}
+            className="btn-secondary"
+            style={{ fontSize: '0.78rem', padding: '8px 10px' }}
+            title="Paste Image Web URL"
+          >
+            <Link style={{ width: 14, height: 14 }} />
+          </button>
 
-            <div className="form-group">
-              <label>Caption / Card Subtitle</label>
-              <input
-                type="text"
-                placeholder="Text shown under card image"
-                value={subtitle}
-                onChange={(e) => setSubtitle(e.target.value)}
-              />
-            </div>
-          </div>
+          <button
+            type="submit"
+            className="btn-primary"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 20px' }}
+          >
+            <Send style={{ width: 14, height: 14 }} /> Post
+          </button>
+        </div>
 
-          {/* Image source input */}
-          <div className="form-group">
-            <div className="tab-group" style={{ marginBottom: '6px' }}>
-              <button
-                type="button"
-                onClick={() => setActiveTab('upload')}
-                className={`modal-tab-btn ${activeTab === 'upload' ? 'active' : ''}`}
-              >
-                <Upload style={{ width: 12, height: 12, display: 'inline', marginRight: 4 }} /> Upload File
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab('url')}
-                className={`modal-tab-btn ${activeTab === 'url' ? 'active' : ''}`}
-              >
-                <Link style={{ width: 12, height: 12, display: 'inline', marginRight: 4 }} /> Image URL
-              </button>
-            </div>
-
-            {activeTab === 'upload' ? (
-              <div className="file-drop-box" style={{ padding: '12px' }}>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                  style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }}
-                />
-                <Upload style={{ width: 22, height: 22, color: '#eab308', margin: '0 auto 4px', display: 'block' }} />
-                <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#f0f0f0', margin: 0 }}>
-                  Select or drop image for suggestion
-                </p>
-              </div>
-            ) : (
-              <input
-                type="url"
-                placeholder="https://example.com/image.jpg"
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
-              />
-            )}
-          </div>
-
-          {/* Image Preview */}
-          {imageUrl && (
-            <div className="preview-box" style={{ marginTop: '8px' }}>
-              <div className="preview-thumb">
-                <img src={imageUrl} alt="Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div className="preview-info">
-                <span className="preview-tag">Uploaded Attachment</span>
-                <div className="preview-title">{title || 'Suggested Item'}</div>
-              </div>
-            </div>
-          )}
-
-          {/* Message / Description */}
-          <div className="form-group" style={{ marginTop: '8px' }}>
-            <label>💬 Comment / Why should this be added? (Optional)</label>
-            <textarea
-              rows={2}
-              placeholder="Explain why this player belongs in this tier..."
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              style={{ resize: 'none' }}
+        {/* Web URL input dropdown */}
+        {showUrlInput && (
+          <div style={{ marginBottom: '10px' }}>
+            <input
+              type="url"
+              placeholder="Or paste image web URL (https://...)"
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
             />
           </div>
+        )}
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px', marginTop: '12px' }}>
-            <button type="button" onClick={() => setIsFormOpen(false)} className="btn-secondary">
-              Cancel
-            </button>
-            <button type="submit" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              <Send style={{ width: 14, height: 14 }} /> Submit Suggestion
+        {/* Tier Selector Pills Row */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginTop: '10px' }}>
+          <span style={{ fontSize: '0.68rem', fontWeight: 800, color: '#eab308', textTransform: 'uppercase' }}>Target Tier:</span>
+          {categories.map((c) => {
+            const isSel = targetTierId === c.id;
+            return (
+              <button
+                key={c.id}
+                type="button"
+                onClick={() => setTargetTierId(c.id)}
+                style={{
+                  padding: '3px 10px',
+                  borderRadius: '999px',
+                  fontSize: '0.75rem',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  border: `1px solid ${isSel ? c.glowColor : 'rgba(255,255,255,0.1)'}`,
+                  background: isSel ? c.gradient : '#1c1c21',
+                  color: isSel ? c.textColor : '#888888',
+                  transition: 'all 0.15s ease',
+                }}
+              >
+                {c.id}
+              </button>
+            );
+          })}
+          <button
+            type="button"
+            onClick={() => setTargetTierId('unranked')}
+            style={{
+              padding: '3px 10px',
+              borderRadius: '999px',
+              fontSize: '0.75rem',
+              fontWeight: 800,
+              cursor: 'pointer',
+              border: `1px solid ${targetTierId === 'unranked' ? '#eab308' : 'rgba(255,255,255,0.1)'}`,
+              background: targetTierId === 'unranked' ? '#eab308' : '#1c1c21',
+              color: targetTierId === 'unranked' ? '#000000' : '#888888',
+              transition: 'all 0.15s ease',
+            }}
+          >
+            Pool
+          </button>
+        </div>
+
+        {/* Attached Image Thumbnail Preview */}
+        {imageUrl && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '10px', padding: '8px 12px', background: '#121215', borderRadius: '10px', border: '1px solid rgba(6, 214, 160, 0.3)' }}>
+            <div style={{ width: 42, height: 42, borderRadius: '8px', overflow: 'hidden', flexShrink: 0, background: '#000' }}>
+              <img src={imageUrl} alt="Attached" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <span style={{ fontSize: '0.75rem', color: '#06d6a0', fontWeight: 600, flex: 1 }}>Photo Attached</span>
+            <button
+              type="button"
+              onClick={() => setImageUrl('')}
+              style={{ background: 'none', border: 'none', color: '#ff4e50', cursor: 'pointer', fontSize: '0.8rem', padding: '4px' }}
+            >
+              <X style={{ width: 14, height: 14 }} /> Remove
             </button>
           </div>
-        </form>
-      )}
+        )}
 
-      {/* Filter Bar */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '16px', marginBottom: '14px' }}>
+        {/* Description / Comment Textarea */}
+        <div style={{ marginTop: '10px' }}>
+          <textarea
+            rows={2}
+            placeholder="Add a comment or why this player belongs in this tier... (Optional)"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            style={{ resize: 'none' }}
+          />
+        </div>
+      </form>
+
+      {/* Filter Tabs */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '20px', marginBottom: '14px' }}>
         {(['all', 'pending', 'approved', 'denied'] as const).map((f) => (
           <button
             key={f}
@@ -261,13 +265,13 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
         ))}
       </div>
 
-      {/* Chat Forum Feed */}
+      {/* Forum Message Cards */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {filteredSuggestions.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '30px 10px', color: '#666666', background: '#18181c', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.05)' }}>
-            <MessageSquare style={{ width: 32, height: 32, margin: '0 auto 8px', color: '#444444', display: 'block' }} />
-            <p style={{ fontSize: '0.85rem', fontWeight: 600 }}>No suggestions in this view.</p>
-            <p style={{ fontSize: '0.72rem', color: '#555555', marginTop: '4px' }}>Be the first to click "New Suggestion" above!</p>
+          <div style={{ textAlign: 'center', padding: '36px 10px', color: '#666666', background: '#18181c', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)' }}>
+            <MessageSquare style={{ width: 36, height: 36, margin: '0 auto 8px', color: '#444444', display: 'block' }} />
+            <p style={{ fontSize: '0.88rem', fontWeight: 700, color: '#888888' }}>No suggestions in this view.</p>
+            <p style={{ fontSize: '0.75rem', color: '#555555', marginTop: '4px' }}>Type a player name in the box above to post the first suggestion!</p>
           </div>
         ) : (
           filteredSuggestions.map((item) => {
@@ -279,20 +283,21 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
                   background: '#18181c',
                   borderRadius: '16px',
                   border: item.status === 'approved' ? '1px solid rgba(6, 214, 160, 0.4)' : item.status === 'denied' ? '1px solid rgba(255, 78, 80, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
-                  padding: '14px 16px',
+                  padding: '16px',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
+                  gap: '12px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
                 }}
               >
-                {/* Top Row: Author, Date, Tier badge, Status */}
+                {/* Header: Author, Date, Target Badge, Status */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#24242a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: '#ffd700', fontWeight: 800 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'linear-gradient(135deg, #ffd700, #ffaa00)', color: '#000000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.85rem', fontWeight: 900 }}>
                       {item.author.charAt(0).toUpperCase()}
                     </div>
                     <div>
-                      <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#ffffff' }}>{item.author}</span>
+                      <span style={{ fontSize: '0.88rem', fontWeight: 800, color: '#ffffff' }}>{item.author}</span>
                       <span style={{ fontSize: '0.68rem', color: '#666666', marginLeft: '8px' }}>
                         {new Date(item.createdAt).toLocaleDateString()} at {new Date(item.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </span>
@@ -303,9 +308,9 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
                     {cat && (
                       <span
                         style={{
-                          padding: '2px 10px',
+                          padding: '3px 10px',
                           borderRadius: '999px',
-                          fontSize: '0.68rem',
+                          fontSize: '0.7rem',
                           fontWeight: 800,
                           background: cat.badgeBg,
                           color: cat.textColor,
@@ -316,12 +321,11 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
                       </span>
                     )}
 
-                    {/* Status Badge */}
                     <span
                       style={{
-                        padding: '2px 8px',
+                        padding: '3px 10px',
                         borderRadius: '999px',
-                        fontSize: '0.68rem',
+                        fontSize: '0.7rem',
                         fontWeight: 800,
                         background: item.status === 'approved' ? 'rgba(6, 214, 160, 0.15)' : item.status === 'denied' ? 'rgba(255, 78, 80, 0.15)' : 'rgba(234, 179, 8, 0.15)',
                         color: item.status === 'approved' ? '#06d6a0' : item.status === 'denied' ? '#ff4e50' : '#ffd700',
@@ -333,45 +337,45 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
                   </div>
                 </div>
 
-                {/* Body Content Card */}
-                <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', background: '#121215', padding: '10px 12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                {/* Content Card Body */}
+                <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', background: '#121215', padding: '12px 14px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.06)' }}>
                   {item.imageUrl && (
-                    <div style={{ width: 56, height: 56, borderRadius: '10px', overflow: 'hidden', flexShrink: 0, background: '#000000', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div style={{ width: 64, height: 64, borderRadius: '12px', overflow: 'hidden', flexShrink: 0, background: '#000000', border: '1px solid rgba(255,255,255,0.1)' }}>
                       <img src={item.imageUrl} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                   )}
 
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#ffffff' }}>{item.title}</div>
+                    <div style={{ fontSize: '1rem', fontWeight: 900, color: '#ffffff' }}>{item.title}</div>
                     {item.subtitle && item.subtitle !== item.title && (
-                      <div style={{ fontSize: '0.75rem', color: '#ffd700', fontWeight: 600 }}>Caption: {item.subtitle}</div>
+                      <div style={{ fontSize: '0.78rem', color: '#ffd700', fontWeight: 700, marginTop: '2px' }}>Caption: {item.subtitle}</div>
                     )}
                     {item.description && (
-                      <p style={{ fontSize: '0.8rem', color: '#cccccc', marginTop: '4px', lineHeight: 1.4 }}>
+                      <p style={{ fontSize: '0.82rem', color: '#dddddd', marginTop: '6px', lineHeight: 1.45, fontStyle: 'italic' }}>
                         "{item.description}"
                       </p>
                     )}
                   </div>
                 </div>
 
-                {/* Admin Actions Row */}
+                {/* Admin Control Actions */}
                 {isAdmin && (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '8px', paddingTop: '6px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '8px', paddingTop: '8px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                     {item.status === 'pending' && (
                       <>
                         <button
                           onClick={() => onApproveSuggestion(item)}
                           className="btn-primary"
-                          style={{ padding: '4px 12px', fontSize: '0.72rem', display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'linear-gradient(135deg, #06d6a0, #00b884)' }}
+                          style={{ padding: '6px 14px', fontSize: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'linear-gradient(135deg, #06d6a0, #00b884)' }}
                         >
-                          <Check style={{ width: 12, height: 12 }} /> Approve & Add to Tier
+                          <Check style={{ width: 14, height: 14 }} /> Approve & Add to Tier
                         </button>
                         <button
                           onClick={() => onDenySuggestion(item.id)}
                           className="btn-secondary"
-                          style={{ padding: '4px 12px', fontSize: '0.72rem', display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#ff4e50', borderColor: 'rgba(255,78,80,0.3)' }}
+                          style={{ padding: '6px 14px', fontSize: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#ff4e50', borderColor: 'rgba(255,78,80,0.3)' }}
                         >
-                          <X style={{ width: 12, height: 12 }} /> Deny
+                          <X style={{ width: 14, height: 14 }} /> Deny
                         </button>
                       </>
                     )}
@@ -379,10 +383,10 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
                     <button
                       onClick={() => onDeleteSuggestion(item.id)}
                       className="btn-secondary"
-                      style={{ padding: '4px 8px', fontSize: '0.72rem', color: '#888888' }}
+                      style={{ padding: '6px 10px', fontSize: '0.75rem', color: '#888888' }}
                       title="Delete Suggestion Message"
                     >
-                      <Trash2 style={{ width: 12, height: 12 }} />
+                      <Trash2 style={{ width: 14, height: 14 }} />
                     </button>
                   </div>
                 )}
