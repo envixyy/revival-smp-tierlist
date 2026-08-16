@@ -77,7 +77,13 @@ export const TierItemCard: React.FC<TierItemCardProps> = ({
       className={`item-card group relative transition-all duration-150 ${
         isCardDragOver ? 'border-l-4 border-yellow-500 scale-105 pl-1' : ''
       }`}
-      onClick={() => !isAdmin && onPreviewItem(item)}
+      onClick={() => {
+        if (isAdmin) {
+          onEditItem(item);
+        } else {
+          onPreviewItem(item);
+        }
+      }}
     >
       {/* Image Container */}
       <div className="item-img relative overflow-hidden">
