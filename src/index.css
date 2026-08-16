@@ -567,3 +567,101 @@ header {
   cursor: pointer !important;
   text-decoration: underline !important;
 }
+
+/* Premium Dark Mode Glass Panel GUI Card System */
+.glass-panel {
+  background: #141417 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 20px !important;
+  padding: 24px !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95) !important;
+  color: #f0f0f0 !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  max-height: 85vh !important;
+  overflow-y: auto !important;
+}
+
+.glass-panel form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  margin-top: 16px !important;
+}
+
+.glass-panel label, .glass-panel .field-label {
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  color: #eab308 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  margin-bottom: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.glass-panel input[type="text"],
+.glass-panel input[type="url"],
+.glass-panel input[type="password"],
+.glass-panel select,
+.glass-panel textarea {
+  width: 100% !important;
+  background: #1c1c21 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  color: #ffffff !important;
+  font-family: inherit !important;
+  font-size: 0.85rem !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+
+.glass-panel input:focus,
+.glass-panel select:focus,
+.glass-panel textarea:focus {
+  border-color: #eab308 !important;
+  box-shadow: 0 0 12px rgba(234, 179, 8, 0.25) !important;
+}
+
+.glass-panel select option {
+  background: #141417 !important;
+  color: #ffffff !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ffd700, #ffaa00) !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  padding: 8px 18px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  border: none !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4) !important;
+}
+
+.btn-secondary {
+  background: #1c1c21 !important;
+  color: #a0a0a0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  font-weight: 600 !important;
+  font-size: 0.82rem !important;
+  padding: 8px 18px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-secondary:hover {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
