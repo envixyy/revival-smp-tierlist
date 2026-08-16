@@ -5,7 +5,8 @@ interface HeaderProps {
   onToggleAdminClick: () => void;
   isPublishing?: boolean;
   onPublishClick?: () => void;
-  onOpenSuggestionsClick?: () => void;
+  currentView: 'tierlist' | 'suggestions';
+  onNavigate: (view: 'tierlist' | 'suggestions') => void;
   suggestionsCount?: number;
 }
 
@@ -14,13 +15,14 @@ export const Header: React.FC<HeaderProps> = ({
   onToggleAdminClick,
   isPublishing = false,
   onPublishClick,
-  onOpenSuggestionsClick,
+  currentView,
+  onNavigate,
   suggestionsCount = 0,
 }) => {
   return (
     <>
       <header>
-        <div className="logo">
+        <div className="logo" style={{ cursor: 'pointer' }} onClick={() => onNavigate('tierlist')}>
           <div className="logo-text-group">
             <span className="logo-r">R</span>
             <span className="logo-t">evival</span>
@@ -29,13 +31,21 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          {onOpenSuggestionsClick && (
+          {currentView === 'tierlist' ? (
             <button 
               className="admin-btn" 
-              onClick={onOpenSuggestionsClick}
-              style={{ color: '#ffd700', borderColor: 'rgba(234, 179, 8, 0.35)', background: 'rgba(234, 179, 8, 0.1)', display: 'flex', alignItems: 'center', gap: '4px' }}
+              onClick={() => onNavigate('suggestions')}
+              style={{ color: '#ffd700', borderColor: 'rgba(234, 179, 8, 0.4)', background: 'rgba(234, 179, 8, 0.12)', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 700 }}
             >
               💬 Suggestions ({suggestionsCount})
+            </button>
+          ) : (
+            <button 
+              className="admin-btn" 
+              onClick={() => onNavigate('tierlist')}
+              style={{ color: '#06d6a0', borderColor: 'rgba(6, 214, 160, 0.4)', background: 'rgba(6, 214, 160, 0.12)', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 700 }}
+            >
+              🏆 Back to Tier List
             </button>
           )}
 
@@ -58,12 +68,13 @@ export const Header: React.FC<HeaderProps> = ({
         <img
           src="revival-logo.png"
           alt="Revival Crystal Logo"
-          style={{ width: 48, height: 48, objectFit: 'contain', margin: '0 auto 8px' }}
+          style={{ width: 48, height: 48, objectFit: 'contain', margin: '0 auto 8px', cursor: 'pointer' }}
+          onClick={() => onNavigate('tierlist')}
         />
         <h1>
           Revival SMP
           <br />
-          <em>Tierlist</em>
+          <em>{currentView === 'suggestions' ? 'Suggestions Forum' : 'Tierlist'}</em>
         </h1>
       </div>
     </>

@@ -44,7 +44,8 @@ export const App: React.FC = () => {
   });
 
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<'add' | 'list' | 'credits' | 'suggestions'>('suggestions');
+  const [currentView, setCurrentView] = useState<'tierlist' | 'suggestions'>('tierlist');
+  const [activeTab, setActiveTab] = useState<'add' | 'list' | 'credits'>('add');
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [isPublishing, setIsPublishing] = useState<boolean>(false);
 
@@ -510,80 +511,71 @@ export const App: React.FC = () => {
         onToggleAdminClick={handleToggleAdminClick} 
         isPublishing={isPublishing}
         onPublishClick={handlePublishLive}
-        onOpenSuggestionsClick={() => {
-          setActiveTab('suggestions');
-          setTimeout(() => {
-            const panel = document.getElementById('suggestions-panel');
-            if (panel) panel.scrollIntoView({ behavior: 'smooth' });
-          }, 50);
-        }}
+        currentView={currentView}
+        onNavigate={setCurrentView}
         suggestionsCount={(data.suggestions || []).length}
       />
 
-      {/* Tier List Board */}
-      <div id="board" ref={tierlistRef}>
-        {data.categories.map((category) => (
-          <TierRow
-            key={category.id}
-            category={category}
-            items={getTierItems(category.id)}
+      {/* Main Page View 1: Tier List Board */}
+      {currentView === 'tierlist' && (
+        <>
+          <div id="board" ref={tierlistRef}>
+            {data.categories.map((category) => (
+              <TierRow
+                key={category.id}
+                category={category}
+                items={getTierItems(category.id)}
+                isAdmin={isAdmin}
+                onDropItem={handleDropItem}
+                onDragStart={handleDragStart}
+                onEditItem={handleOpenEditModal}
+                onDeleteItem={handleDeleteItem}
+                onAddItemToTier={handleOpenAddModal}
+                onPreviewItem={setPreviewItem}
+                onQuickMoveItem={handleQuickMoveItem}
+                onFileUploadToTier={handleFileUpload}
+              />
+            ))}
+          </div>
+
+          {/* Unranked Items Pool */}
+          <UnrankedPool
+            items={getTierItems('unranked')}
             isAdmin={isAdmin}
             onDropItem={handleDropItem}
             onDragStart={handleDragStart}
             onEditItem={handleOpenEditModal}
             onDeleteItem={handleDeleteItem}
-            onAddItemToTier={handleOpenAddModal}
+            onOpenAddModal={() => handleOpenAddModal('unranked')}
+            onFileUpload={handleFileUpload}
             onPreviewItem={setPreviewItem}
-            onQuickMoveItem={handleQuickMoveItem}
-            onFileUploadToTier={handleFileUpload}
           />
-        ))}
-      </div>
 
-      {/* Unranked Items Pool */}
-      <UnrankedPool
-        items={getTierItems('unranked')}
-        isAdmin={isAdmin}
-        onDropItem={handleDropItem}
-        onDragStart={handleDragStart}
-        onEditItem={handleOpenEditModal}
-        onDeleteItem={handleDeleteItem}
-        onOpenAddModal={() => handleOpenAddModal('unranked')}
-        onFileUpload={handleFileUpload}
-        onPreviewItem={setPreviewItem}
-      />
-
-      {/* Admin & Community Tab Bar */}
-      <div className="admin-bar">
-        {isAdmin && (
-          <>
+          {/* Admin & Credits Tab Bar */}
+          <div className="admin-bar">
+            {isAdmin && (
+              <>
+                <div
+                  className={`tab ${activeTab === 'add' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('add')}
+                >
+                  Add Item
+                </div>
+                <div
+                  className={`tab ${activeTab === 'list' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('list')}
+                >
+                  Manage List ({data.items.length})
+                </div>
+              </>
+            )}
             <div
-              className={`tab ${activeTab === 'add' ? 'active' : ''}`}
-              onClick={() => setActiveTab('add')}
+              className={`tab ${activeTab === 'credits' ? 'active' : ''}`}
+              onClick={() => setActiveTab('credits')}
             >
-              Add Item
+              Credits
             </div>
-            <div
-              className={`tab ${activeTab === 'list' ? 'active' : ''}`}
-              onClick={() => setActiveTab('list')}
-            >
-              Manage List ({data.items.length})
-            </div>
-          </>
-        )}
-        <div
-          className={`tab ${activeTab === 'suggestions' ? 'active' : ''}`}
-          onClick={() => setActiveTab('suggestions')}
-        >
-          💬 Suggestions ({(data.suggestions || []).length})
-        </div>
-        <div
-          className={`tab ${activeTab === 'credits' ? 'active' : ''}`}
-          onClick={() => setActiveTab('credits')}
-        >
-          Credits
-        </div>
-      </div>
+          </div>
 
       {/* Add Item Tab with Choose File Button */}
       {isAdmin && activeTab === 'add' && (
@@ -791,8 +783,11 @@ export const App: React.FC = () => {
           </div>
         </div>
       )}
-      {/* Suggestions Forum Tab */}
-      {activeTab === 'suggestions' && (
+    </>
+  )}
+
+  {/* Main Page View 2: Suggestions Forum Page */}
+      {currentView === 'suggestions' && (
         <SuggestionsForum
           suggestions={data.suggestions || []}
           categories={data.categories}
