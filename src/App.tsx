@@ -10,7 +10,7 @@ import { AdminLockModal } from './components/AdminLockModal';
 import { ItemPreviewModal } from './components/ItemPreviewModal';
 import html2canvas from 'html2canvas';
 import confetti from 'canvas-confetti';
-import { Sparkles, Download, Github, Upload, Crown, Users } from 'lucide-react';
+import { Sparkles, Download, Github, Upload, Crown, Users, Edit2, Trash2 } from 'lucide-react';
 
 const STORAGE_KEY = 'revival_tiers_data_v9';
 
@@ -51,6 +51,7 @@ export const App: React.FC = () => {
   const [itemName, setItemName] = useState('');
   const [selectedTier, setSelectedTier] = useState<TierId | null>(null);
   const [itemImageUrl, setItemImageUrl] = useState('');
+  const [itemDescription, setItemDescription] = useState('');
   const [feedback, setFeedback] = useState<{ text: string; color: string } | null>(null);
 
   // Modals
@@ -235,6 +236,7 @@ export const App: React.FC = () => {
           tierId: itemData.tierId || 'unranked',
           fit: itemData.fit || 'cover',
           tag: itemData.tag,
+          description: itemData.description,
           order: updatedItems.length,
         };
         updatedItems.push(newItem);
@@ -291,10 +293,12 @@ export const App: React.FC = () => {
       subtitle: itemName.trim(),
       imageUrl: itemImageUrl.trim() || undefined,
       tierId: selectedTier,
+      description: itemDescription.trim() || undefined,
     });
 
     setItemName('');
     setItemImageUrl('');
+    setItemDescription('');
     setSelectedTier(null);
     setFeedback({ text: '✓ Added!', color: '#06d6a0' });
     setTimeout(() => setFeedback(null), 2500);
@@ -588,6 +592,18 @@ export const App: React.FC = () => {
             </div>
           </div>
 
+          <div>
+            <div className="field-label">Description (Optional)</div>
+            <textarea
+              className="text-in"
+              placeholder="Write about this person..."
+              value={itemDescription}
+              onChange={(e) => setItemDescription(e.target.value)}
+              rows={2}
+              style={{ resize: 'none' }}
+            />
+          </div>
+
           <button className="add-btn" onClick={handleQuickAddFormSubmit}>
             Add to Tier List
           </button>
@@ -619,26 +635,56 @@ export const App: React.FC = () => {
             {data.items.length === 0 ? (
               <p className="text-xs text-zinc-500 text-center py-4">No items yet — add some above!</p>
             ) : (
-              data.items.map((item) => (
-                <div key={item.id} className="ai">
-                  <div className="ai-thumb">
-                    {item.imageUrl ? (
-                      <img src={item.imageUrl} alt={item.title} />
-                    ) : (
-                      <span>🎯</span>
-                    )}
-                  </div>
-                  <div className="ai-info">
-                    <div className="ai-name">{item.title}</div>
-                    <div className="ai-tier" style={{ color: item.tierId === 'unranked' ? '#666' : undefined }}>
-                      {item.tierId === 'unranked' ? 'Unranked Pool' : `${item.tierId} Tier`}
+              data.items.map((item) => {
+                const tierColors: Record<string, string> = {
+                  S: '#ff4e50', A: '#ff8c42', B: '#ffd166', C: '#06d6a0',
+                  D: '#4eb8f7', E: '#b78ff7', F: '#666', unranked: '#555'
+                };
+                return (
+                  <div
+                    key={item.id}
+                    className="ai"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => handleOpenEditModal(item)}
+                  >
+                    <div className="ai-thumb">
+                      {item.imageUrl ? (
+                        <img src={item.imageUrl} alt={item.title} />
+                      ) : (
+                        <span>🎯</span>
+                      )}
+                    </div>
+                    <div className="ai-info">
+                      <div className="ai-name">{item.title}</div>
+                      <div className="ai-tier" style={{ color: tierColors[item.tierId] || '#666' }}>
+                        {item.tierId === 'unranked' ? 'Pool' : `${item.tierId} Tier`}
+                      </div>
+                      {item.description && (
+                        <div style={{ fontSize: '0.62rem', color: '#555', marginTop: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {item.description.slice(0, 50)}{item.description.length > 50 ? '...' : ''}
+                        </div>
+                      )}
+                    </div>
+                    <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
+                      <button
+                        className="del-btn"
+                        title="Edit"
+                        onClick={(e) => { e.stopPropagation(); handleOpenEditModal(item); }}
+                        style={{ borderColor: 'rgba(234,179,8,0.3)', color: '#eab308' }}
+                      >
+                        <Edit2 className="w-3 h-3" />
+                      </button>
+                      <button
+                        className="del-btn"
+                        title="Delete"
+                        onClick={(e) => { e.stopPropagation(); handleDeleteItem(item.id); }}
+                      >
+                        <Trash2 className="w-3 h-3" />
+                      </button>
                     </div>
                   </div>
-                  <button className="del-btn" onClick={() => handleDeleteItem(item.id)}>
-                    ✕
-                  </button>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
         </div>
