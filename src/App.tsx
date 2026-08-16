@@ -87,7 +87,7 @@ export const App: React.FC = () => {
             setData((prev) => ({
               ...remoteData,
               // Preserve admin credentials and config stored locally
-              adminPin: prev.adminPin || remoteData.adminPin || '1234',
+              adminPin: prev.adminPin || remoteData.adminPin || 'revivaltieradmin',
               githubConfig: {
                 ...(remoteData.githubConfig || {}),
                 owner: prev.githubConfig?.owner || remoteData.githubConfig?.owner || 'envixyy',
@@ -742,7 +742,7 @@ export const App: React.FC = () => {
       <AdminLockModal
         isOpen={isAdminLockModalOpen}
         onClose={() => setIsAdminLockModalOpen(false)}
-        currentPin={data.adminPin || '1234'}
+        currentPin={data.adminPin || 'revivaltieradmin'}
         onUnlockSuccess={() => {
           setIsAdmin(true);
           setData((prev) => ({ ...prev, isPublished: false }));

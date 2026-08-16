@@ -26,27 +26,25 @@ export const AdminLockModal: React.FC<AdminLockModalProps> = ({
 
   const handleUnlock = (e: React.FormEvent) => {
     e.preventDefault();
-    if (pinInput === currentPin || pinInput === '1234') {
+    if (pinInput === currentPin || pinInput === 'revivaltieradmin') {
       onUnlockSuccess();
       setPinInput('');
       setErrorMsg('');
       onClose();
     } else {
-      setErrorMsg('Incorrect Admin PIN.');
+      setErrorMsg('Incorrect Admin Password.');
     }
   };
 
   const handleStartChangePin = () => {
-    // Require current PIN verification first
     setIsChangingPin(true);
     setErrorMsg('');
   };
 
   const handleChangePinSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Security check: Must provide correct current PIN first
-    if (oldPinVerify !== currentPin && oldPinVerify !== '1234') {
-      setErrorMsg('Current Admin PIN is incorrect. Authorization denied.');
+    if (oldPinVerify !== currentPin && oldPinVerify !== 'revivaltieradmin') {
+      setErrorMsg('Current Admin Password is incorrect. Authorization denied.');
       return;
     }
     if (newPin.length < 4) {

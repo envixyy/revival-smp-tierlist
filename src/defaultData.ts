@@ -82,7 +82,7 @@ export const INITIAL_TIERLIST_DATA: TierListData = {
   title: 'Revival SMP Tierlist',
   subtitle: 'Community-ranked. Brutally honest.',
   updatedAt: new Date().toISOString(),
-  adminPin: '1234',
+  adminPin: 'revivaltieradmin',
   isPublished: false,
   categories: DEFAULT_CATEGORIES,
   items: INITIAL_ITEMS,
