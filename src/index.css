@@ -106,6 +106,34 @@ header {
   border-color: rgba(234, 179, 8, 0.4);
 }
 
+.publish-btn {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #000;
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  border: none;
+  border-radius: 7px;
+  padding: 5px 11px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(234, 179, 8, 0.3);
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.publish-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px rgba(234, 179, 8, 0.5);
+}
+
+.publish-btn:disabled {
+  background: #27272a;
+  color: #71717a;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
 .hero {
   text-align: center;
   padding: 16px 8px 8px;

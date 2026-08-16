@@ -30,6 +30,7 @@ export const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<'add' | 'list' | 'credits'>('add');
   const [toastMsg, setToastMsg] = useState<string | null>(null);
+  const [isPublishing, setIsPublishing] = useState<boolean>(false);
 
   // Quick Add Form fields
   const [itemName, setItemName] = useState('');
@@ -52,6 +53,44 @@ export const App: React.FC = () => {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   }, [data]);
+
+  // Auto-pull latest tier list data from GitHub on page load
+  useEffect(() => {
+    const fetchLatestGitHubData = async () => {
+      try {
+        const owner = data.githubConfig?.owner || 'envixyy';
+        const repo = data.githubConfig?.repo || 'revival-smp-tierlist';
+        const branch = data.githubConfig?.branch || 'main';
+        const path = data.githubConfig?.filePath || 'revival-tiers-data.json';
+        
+        const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}?t=${Date.now()}`;
+        const res = await fetch(rawUrl);
+        if (res.ok) {
+          const remoteData = await res.json();
+          if (remoteData && Array.isArray(remoteData.items)) {
+            setData((prev) => ({
+              ...remoteData,
+              // Preserve admin credentials and config stored locally
+              adminPin: prev.adminPin || remoteData.adminPin || '1234',
+              githubConfig: {
+                ...(remoteData.githubConfig || {}),
+                owner: prev.githubConfig?.owner || remoteData.githubConfig?.owner || 'envixyy',
+                repo: prev.githubConfig?.repo || remoteData.githubConfig?.repo || 'revival-smp-tierlist',
+                branch: prev.githubConfig?.branch || remoteData.githubConfig?.branch || 'main',
+                filePath: prev.githubConfig?.filePath || remoteData.githubConfig?.filePath || 'revival-tiers-data.json',
+                token: prev.githubConfig?.token || '',
+              }
+            }));
+            console.log('Successfully synced tier list data with GitHub.');
+          }
+        }
+      } catch (err) {
+        console.error('Failed to auto-pull latest data from GitHub:', err);
+      }
+    };
+
+    fetchLatestGitHubData();
+  }, []);
 
   const showToast = (msg: string) => {
     setToastMsg(msg);
@@ -275,6 +314,83 @@ export const App: React.FC = () => {
     }
   };
 
+  const handlePublishLive = async () => {
+    const config = data.githubConfig;
+    if (!config || !config.owner || !config.repo || !config.token) {
+      setIsGithubModalOpen(true);
+      showToast('⚠️ Please configure GitHub Sync details & Access Token.');
+      return;
+    }
+
+    setIsPublishing(true);
+    showToast('🚀 Publishing changes to live site...');
+
+    try {
+      const path = config.filePath || 'revival-tiers-data.json';
+      const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`;
+      
+      const payloadData = {
+        ...data,
+        updatedAt: new Date().toISOString(),
+        githubConfig: {
+          ...config,
+          token: '' // Never commit API token to GitHub
+        },
+        adminPin: '' // Never commit PIN to GitHub
+      };
+      const jsonContent = JSON.stringify(payloadData, null, 2);
+
+      let sha: string | undefined = undefined;
+      try {
+        const getRes = await fetch(url, {
+          headers: {
+            Authorization: `token ${config.token}`,
+            Accept: 'application/vnd.github.v3+json',
+          },
+        });
+        if (getRes.ok) {
+          const fileData = await getRes.json();
+          sha = fileData.sha;
+        }
+      } catch (e) {
+        console.warn('File does not exist yet or error checking SHA:', e);
+      }
+
+      const base64Content = btoa(
+        encodeURIComponent(jsonContent).replace(/%([0-9A-F]{2})/g, function toSolidBytes(_match, p1) {
+          return String.fromCharCode(parseInt(p1, 16));
+        })
+      );
+
+      const commitRes = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          Authorization: `token ${config.token}`,
+          Accept: 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: `Update Revival Tiers data via live publish [${new Date().toLocaleTimeString()}]`,
+          content: base64Content,
+          branch: config.branch || 'main',
+          sha,
+        }),
+      });
+
+      if (!commitRes.ok) {
+        const errJson = await commitRes.json();
+        throw new Error(errJson.message || 'Failed to commit file to GitHub');
+      }
+
+      showToast('✨ Published successfully! Live site is updating.');
+    } catch (err: any) {
+      console.error('Publish Error:', err);
+      showToast(`❌ Publish failed: ${err.message || 'Error saving to GitHub'}`);
+    } finally {
+      setIsPublishing(false);
+    }
+  };
+
   const getTierItems = (tierId: TierId) => data.items.filter((i) => i.tierId === tierId);
 
   return (
@@ -288,7 +404,12 @@ export const App: React.FC = () => {
       )}
 
       {/* Header */}
-      <Header isAdmin={isAdmin} onToggleAdminClick={handleToggleAdminClick} />
+      <Header 
+        isAdmin={isAdmin} 
+        onToggleAdminClick={handleToggleAdminClick} 
+        isPublishing={isPublishing}
+        onPublishClick={handlePublishLive}
+      />
 
       {/* Tier List Board */}
       <div id="board" ref={tierlistRef}>

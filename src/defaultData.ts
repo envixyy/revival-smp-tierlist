@@ -87,8 +87,8 @@ export const INITIAL_TIERLIST_DATA: TierListData = {
   categories: DEFAULT_CATEGORIES,
   items: INITIAL_ITEMS,
   githubConfig: {
-    owner: '',
-    repo: '',
+    owner: 'envixyy',
+    repo: 'revival-smp-tierlist',
     branch: 'main',
     filePath: 'revival-tiers-data.json',
     token: ''

@@ -3,9 +3,16 @@ import React from 'react';
 interface HeaderProps {
   isAdmin: boolean;
   onToggleAdminClick: () => void;
+  isPublishing?: boolean;
+  onPublishClick?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ isAdmin, onToggleAdminClick }) => {
+export const Header: React.FC<HeaderProps> = ({ 
+  isAdmin, 
+  onToggleAdminClick,
+  isPublishing = false,
+  onPublishClick
+}) => {
   return (
     <>
       <header>
@@ -17,9 +24,20 @@ export const Header: React.FC<HeaderProps> = ({ isAdmin, onToggleAdminClick }) =
           </div>
         </div>
 
-        <button className="admin-btn" onClick={onToggleAdminClick}>
-          {isAdmin ? '🔒 Reader View' : '⚙ Admin'}
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {isAdmin && onPublishClick && (
+            <button 
+              className="publish-btn" 
+              onClick={onPublishClick} 
+              disabled={isPublishing}
+            >
+              {isPublishing ? '⏳ Syncing...' : '🚀 Publish Live'}
+            </button>
+          )}
+          <button className="admin-btn" onClick={onToggleAdminClick}>
+            {isAdmin ? '🔒 Reader View' : '⚙ Admin'}
+          </button>
+        </div>
       </header>
 
       <div className="hero">

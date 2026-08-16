@@ -45,6 +45,11 @@ export const GithubSyncModal: React.FC<GithubSyncModalProps> = ({
       const payloadData = {
         ...tierListData,
         updatedAt: new Date().toISOString(),
+        githubConfig: tierListData.githubConfig ? {
+          ...tierListData.githubConfig,
+          token: '' // Never commit API token to GitHub
+        } : undefined,
+        adminPin: '' // Never commit PIN to GitHub
       };
       const jsonContent = JSON.stringify(payloadData, null, 2);
 
