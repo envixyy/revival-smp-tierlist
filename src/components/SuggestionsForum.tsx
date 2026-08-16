@@ -81,7 +81,7 @@ export const SuggestionsForum: React.FC<SuggestionsForumProps> = ({
   });
 
   return (
-    <div className="glass-panel" style={{ maxWidth: '100%', margin: '8px 0', padding: '20px' }}>
+    <div id="suggestions-panel" className="glass-panel" style={{ maxWidth: '100%', margin: '8px 0', padding: '20px' }}>
       {/* Forum Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', paddingBottom: '16px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

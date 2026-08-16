@@ -5,13 +5,17 @@ interface HeaderProps {
   onToggleAdminClick: () => void;
   isPublishing?: boolean;
   onPublishClick?: () => void;
+  onOpenSuggestionsClick?: () => void;
+  suggestionsCount?: number;
 }
 
 export const Header: React.FC<HeaderProps> = ({ 
   isAdmin, 
   onToggleAdminClick,
   isPublishing = false,
-  onPublishClick
+  onPublishClick,
+  onOpenSuggestionsClick,
+  suggestionsCount = 0,
 }) => {
   return (
     <>
@@ -25,6 +29,16 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {onOpenSuggestionsClick && (
+            <button 
+              className="admin-btn" 
+              onClick={onOpenSuggestionsClick}
+              style={{ color: '#ffd700', borderColor: 'rgba(234, 179, 8, 0.35)', background: 'rgba(234, 179, 8, 0.1)', display: 'flex', alignItems: 'center', gap: '4px' }}
+            >
+              💬 Suggestions ({suggestionsCount})
+            </button>
+          )}
+
           {isAdmin && onPublishClick && (
             <button 
               className="publish-btn" 

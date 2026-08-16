@@ -510,6 +510,14 @@ export const App: React.FC = () => {
         onToggleAdminClick={handleToggleAdminClick} 
         isPublishing={isPublishing}
         onPublishClick={handlePublishLive}
+        onOpenSuggestionsClick={() => {
+          setActiveTab('suggestions');
+          setTimeout(() => {
+            const panel = document.getElementById('suggestions-panel');
+            if (panel) panel.scrollIntoView({ behavior: 'smooth' });
+          }, 50);
+        }}
+        suggestionsCount={(data.suggestions || []).length}
       />
 
       {/* Tier List Board */}
