@@ -1,6 +1,6 @@
 import React from 'react';
 import { TierItem, TierCategory } from '../types';
-import { X, Tag, Award, Sparkles } from 'lucide-react';
+import { X, Tag, Award } from 'lucide-react';
 
 interface ItemPreviewModalProps {
   item: TierItem | null;
@@ -16,66 +16,81 @@ export const ItemPreviewModal: React.FC<ItemPreviewModalProps> = ({ item, onClos
   return (
     <div className="modal-overlay animate-pop" onClick={onClose}>
       <div
-        className="glass-panel w-full max-w-lg p-6 rounded-3xl border border-slate-700/80 shadow-2xl relative overflow-hidden"
+        className="glass-panel w-full max-w-md p-0 rounded-3xl border border-[#27272a] shadow-2xl relative overflow-hidden bg-[#141417]"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-full bg-slate-800/60 hover:bg-slate-800 transition-colors z-10"
+          className="absolute top-3 right-3 p-1.5 text-zinc-400 hover:text-white rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-sm transition-colors z-10"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
-        {/* Top Header Badge */}
-        {category && (
-          <div className="flex items-center gap-2 mb-4">
-            <span
-              className="px-3 py-1 rounded-full text-xs font-bold font-heading shadow-md uppercase tracking-wider flex items-center gap-1.5"
-              style={{
-                background: category.gradient,
-                color: category.textColor,
-                boxShadow: `0 0 15px ${category.glowColor}`,
-              }}
-            >
-              <Award className="w-3.5 h-3.5" />
-              {category.label}
-            </span>
+        {/* Large Image */}
+        <div className="w-full h-56 bg-[#0c0c0e] overflow-hidden relative">
+          {item.imageUrl ? (
+            <img
+              src={item.imageUrl}
+              alt={item.title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-4xl">🎯</div>
+          )}
+
+          {/* Gradient overlay at bottom of image */}
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#141417] to-transparent" />
+        </div>
+
+        {/* Content */}
+        <div className="px-5 pb-5 -mt-4 relative z-10">
+          {/* Tier badge + tag row */}
+          <div className="flex items-center gap-2 mb-3">
+            {category && (
+              <span
+                className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5"
+                style={{
+                  background: category.gradient,
+                  color: category.textColor,
+                  boxShadow: `0 0 12px ${category.glowColor}`,
+                }}
+              >
+                <Award className="w-3 h-3" />
+                {category.label} Tier
+              </span>
+            )}
 
             {item.tag && (
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-600/90 text-white flex items-center gap-1">
-                <Tag className="w-3 h-3" />
+              <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 flex items-center gap-1">
+                <Tag className="w-2.5 h-2.5" />
                 {item.tag}
               </span>
             )}
           </div>
-        )}
 
-        {/* Large Image View */}
-        <div className="w-full h-64 bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 mb-4 flex items-center justify-center relative group">
-          <img
-            src={item.imageUrl}
-            alt={item.title}
-            className="w-full h-full object-contain p-2"
-          />
-        </div>
-
-        {/* Details & Subtext */}
-        <div className="space-y-2">
-          <h2 className="text-2xl font-black font-heading text-slate-100 flex items-center gap-2">
+          {/* Name */}
+          <h2 className="text-2xl font-black text-white mb-1 leading-tight">
             {item.title}
           </h2>
 
-          <div className="bg-slate-950/80 p-3 rounded-xl border border-slate-800/80 flex items-start gap-2.5">
-            <Sparkles className="w-4 h-4 text-indigo-400 mt-0.5 flex-shrink-0" />
-            <div>
-              <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                Card Label / Sub-Text
-              </p>
-              <p className="text-sm font-semibold text-indigo-300">
-                {item.subtitle || item.title}
+          {item.subtitle && item.subtitle !== item.title && (
+            <p className="text-sm text-zinc-400 font-medium mb-3">{item.subtitle}</p>
+          )}
+
+          {/* Description */}
+          {item.description ? (
+            <div className="mt-3 p-4 rounded-2xl bg-[#1a1a1e] border border-[#27272a]">
+              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-2">About</p>
+              <p className="text-sm text-zinc-200 leading-relaxed whitespace-pre-wrap">
+                {item.description}
               </p>
             </div>
-          </div>
+          ) : (
+            <div className="mt-3 p-4 rounded-2xl bg-[#1a1a1e] border border-[#27272a]">
+              <p className="text-xs text-zinc-500 italic text-center">No description yet.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

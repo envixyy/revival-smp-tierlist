@@ -25,6 +25,7 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
   const [tierId, setTierId] = useState<TierId>(defaultTierId);
   const [fit, setFit] = useState<'cover' | 'contain'>('cover');
   const [tag, setTag] = useState('');
+  const [description, setDescription] = useState('');
   const [activeTab, setActiveTab] = useState<'upload' | 'url'>('upload');
 
   useEffect(() => {
@@ -35,6 +36,7 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
       setTierId(editingItem.tierId || 'unranked');
       setFit(editingItem.fit || 'cover');
       setTag(editingItem.tag || '');
+      setDescription(editingItem.description || '');
     } else {
       setTitle('');
       setSubtitle('');
@@ -42,6 +44,7 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
       setTierId(defaultTierId);
       setFit('cover');
       setTag('');
+      setDescription('');
     }
   }, [editingItem, defaultTierId, isOpen]);
 
@@ -84,6 +87,7 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
       tierId,
       fit,
       tag: tag.trim() || undefined,
+      description: description.trim() || undefined,
     });
     onClose();
   };
@@ -263,6 +267,23 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
               onChange={(e) => setTag(e.target.value)}
               className="w-full bg-[#18181c] border border-[#27272a] rounded-xl px-3.5 py-2 text-sm text-white placeholder-zinc-500 focus:border-purple-500"
             />
+          </div>
+
+          {/* Description input */}
+          <div>
+            <label className="text-xs font-semibold text-zinc-300 mb-1 flex items-center gap-1.5">
+              📝 Description (Optional)
+            </label>
+            <textarea
+              rows={3}
+              placeholder="Write a description about this person/item..."
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full bg-[#18181c] border border-[#27272a] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:border-purple-500 resize-none"
+            />
+            <p className="text-[10px] text-zinc-400 mt-1">
+              Shown when visitors click on this item.
+            </p>
           </div>
 
           <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#27272a]">

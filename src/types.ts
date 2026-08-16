@@ -20,6 +20,7 @@ export interface TierItem {
   customBorderColor?: string;
   tag?: string;
   order: number;
+  description?: string;
 }
 
 export interface GitHubConfig {
