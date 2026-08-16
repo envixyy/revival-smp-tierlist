@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T16:39:50.032Z",
+  "updatedAt": "2026-08-16T16:40:31.985Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -101,12 +101,13 @@
     },
     {
       "id": "item-1786842503032",
-      "title": "Sweb",
+      "title": "black zemmbyy",
       "subtitle": "Sweb",
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAdUlEQVR42mMQl1KEI2MjYzhSQwIo4ngBpnqGUQsIWoDMccABMDVjqh+1gHwLPs+YgRV9sHPAipDVIBt0UUwfjpDVjFpA2AJkCVyKkMVxWYbLnFELCFswCgYe/EcCtDBz1AKCFhCliBI1oxZQYgFhMGoBVSwAADydjw5l86cpAAAAAElFTkSuQmCC",
       "tierId": "C",
       "fit": "cover",
-      "order": 3
+      "order": 3,
+      "description": "black zemmbyy"
     },
     {
       "id": "item-1786842937741",
