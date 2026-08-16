@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T02:01:03.161Z",
+  "updatedAt": "2026-08-16T02:15:34.963Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -297,13 +297,22 @@
       "order": 24
     },
     {
+      "id": "item-1786843740313",
+      "title": "cloudz",
+      "subtitle": "cloudz",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABSklEQVR4AezSQUvDMBgG4Df11uqWpFocs46N7SJuu7mLf7Z3maAnBf0n/gRPutqxSk1PfRdhImK/y0ofSEj4Et58QRRG1bbQzRvWxhXTxlTMaF0xG7v9JIpcfRKGYcUCCH/7CwTqQIEFQQBWrAuwstyAbcpPsHVRgEG5NyZKKSjV2D+BfAKr9xXYxXgE9pHnYFO3znTnECx3+9lsMgbjtXosn4DrUdFfPoGr2SVYbDTYfNADs10NliYJ0qTBe+uxdfXYYj4Fk09AtAHc4fIJxNaAjc7PwF5e38CGgxTMmC4Y763Hw7QPpjtHYPIJuGcQ/eUTOHY9wLLlPZgfT7a8c+sN7pd6/H3/dr1ecgImn4B/47bn8gncPj6D/TaB7Iee8evdPDyBySfg37DtuXwCi+Epdrme9PEXu2rXa/IJtP3m/nn/noB/oD//AgAA///P/XQFAAAABklEQVQDAA8088EekXYsAAAAAElFTkSuQmCC",
+      "tierId": "B",
+      "fit": "cover",
+      "order": 25
+    },
+    {
       "id": "item-1786843656329",
       "title": "Nezotoji",
       "subtitle": "Nezotoji",
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAArElEQVR4Xu2SMQ7EIAwEnYqS5kSXR+QF+f+ruJbMRrGQpXDSuZjGWXbNEiul9CfMLAT9iHFAaDgL/UguYLXWPsIKPaTSG82I5Mng5tATuUC4gWPb+ggPEAYSTy95MoABoSHx9JInAxgQGhJPL3kygAGhIfH0kkdBa+2CZzgL/XKB32+Abxhl+h/g9yi5gNuACByi53OB9Q3Im7zPktDxov++wLl/+kpygeUNfAFSg2QNRYqnqAAAAABJRU5ErkJggg==",
       "tierId": "B",
       "fit": "cover",
-      "order": 25
+      "order": 26
     },
     {
       "id": "item-1786843421987",
@@ -312,7 +321,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAhklEQVR4Xu2UsQ2AMAwEvQBFGlrWYkZmQGIBGnqYxSiln8KylBAXX1yTWM7rnESuedKRyMjD69kMIHqLRjj31XBsiwHrPRgggYFHNALOHO8E1nsILngwQHMD+BWXUgy4H8XrxwD5DOCMevMx8DcM4BrAdxwF+yEMkN8Azqw1roHeMAAN0MALD5ZhuZUznWMAAAAASUVORK5CYII=",
       "tierId": "E",
       "fit": "cover",
-      "order": 26
+      "order": 27
     },
     {
       "id": "item-1786843431593",
@@ -321,7 +330,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABG0lEQVR4AezTPWoCURQF4JMxpkiREAJCmB2kSJlK7awsBTfhAlyFC3ADNhaCYCdYiJVopWBhoY06IijMIPjzVOyOV1AsnNu8Bx+8B+/33BnnqNwcKDd7AZuATeAqgSAI8Aj5F99bK+dfXUBOePbYXsCRNTtMarhFlkSu930fTO4l59sS6CewGyTBvGEO7PU9Buas2mDym/g0A7DqSwqstTqA6ScgXxD2WD+ByEcezP0rg3UbGTCZ0Nt2DFZc/oJlv6dgCXTA9BOQLwp7rJ+Ambtgx+AH7D/dBDOVHti+3gfLuQuw3TwCthlFwfQTCLvm8jz9BL7icbBozICtCyUwM5vhgufBEPlC3uvc57POff0E5I3DHj89gXsPOgEAAP//uPwB+gAAAAZJREFUAwDqs8RAEfLZoQAAAABJRU5ErkJggg==",
       "tierId": "E",
       "fit": "cover",
-      "order": 27
+      "order": 28
     },
     {
       "id": "item-1786843473055",
@@ -329,15 +338,6 @@
       "subtitle": "ES_toast",
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAy0lEQVR4Xu2VIQ7CQBBF9xw4FArfAKKmAo3HcSFSAqRNDZLjUFpIuEux/Lei2RAYM+KZye78nz+dbag3k+GTy3YqXHezr2A/6gUWeIENU2E/6rmBwIhu+7nwrJZJvJqFwH7UcwP2CXBt2kMmcKac+dh5Qj03YJ8An0bOlHCmqVDPDdgnEL3NIQicIb+JMdgv0osKbsA6ge6UC22ZCX1VCPfjSujOuYJ+0chZ4AU38PME+H/mHpNHsxb6uhB4nlDPDdgnwDX8N27APIE30I+GSIPEyM4AAAAASUVORK5CYII=",
       "tierId": "D",
-      "fit": "cover",
-      "order": 28
-    },
-    {
-      "id": "item-1786843740313",
-      "title": "cloudz",
-      "subtitle": "cloudz",
-      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABSklEQVR4AezSQUvDMBgG4Df11uqWpFocs46N7SJuu7mLf7Z3maAnBf0n/gRPutqxSk1PfRdhImK/y0ofSEj4Et58QRRG1bbQzRvWxhXTxlTMaF0xG7v9JIpcfRKGYcUCCH/7CwTqQIEFQQBWrAuwstyAbcpPsHVRgEG5NyZKKSjV2D+BfAKr9xXYxXgE9pHnYFO3znTnECx3+9lsMgbjtXosn4DrUdFfPoGr2SVYbDTYfNADs10NliYJ0qTBe+uxdfXYYj4Fk09AtAHc4fIJxNaAjc7PwF5e38CGgxTMmC4Y763Hw7QPpjtHYPIJuGcQ/eUTOHY9wLLlPZgfT7a8c+sN7pd6/H3/dr1ecgImn4B/47bn8gncPj6D/TaB7Iee8evdPDyBySfg37DtuXwCi+Epdrme9PEXu2rXa/IJtP3m/nn/noB/oD//AgAA///P/XQFAAAABklEQVQDAA8088EekXYsAAAAAElFTkSuQmCC",
-      "tierId": "B",
       "fit": "cover",
       "order": 29
     },
