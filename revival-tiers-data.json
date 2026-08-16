@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T02:15:37.315Z",
+  "updatedAt": "2026-08-16T02:15:43.275Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -297,19 +297,19 @@
       "order": 24
     },
     {
-      "id": "item-1786843740313",
-      "title": "cloudz",
-      "subtitle": "cloudz",
-      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABSklEQVR4AezSQUvDMBgG4Df11uqWpFocs46N7SJuu7mLf7Z3maAnBf0n/gRPutqxSk1PfRdhImK/y0ofSEj4Et58QRRG1bbQzRvWxhXTxlTMaF0xG7v9JIpcfRKGYcUCCH/7CwTqQIEFQQBWrAuwstyAbcpPsHVRgEG5NyZKKSjV2D+BfAKr9xXYxXgE9pHnYFO3znTnECx3+9lsMgbjtXosn4DrUdFfPoGr2SVYbDTYfNADs10NliYJ0qTBe+uxdfXYYj4Fk09AtAHc4fIJxNaAjc7PwF5e38CGgxTMmC4Y763Hw7QPpjtHYPIJuGcQ/eUTOHY9wLLlPZgfT7a8c+sN7pd6/H3/dr1ecgImn4B/47bn8gncPj6D/TaB7Iee8evdPDyBySfg37DtuXwCi+Epdrme9PEXu2rXa/IJtP3m/nn/noB/oD//AgAA///P/XQFAAAABklEQVQDAA8088EekXYsAAAAAElFTkSuQmCC",
+      "id": "item-1786843656329",
+      "title": "Nezotoji",
+      "subtitle": "Nezotoji",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAArElEQVR4Xu2SMQ7EIAwEnYqS5kSXR+QF+f+ruJbMRrGQpXDSuZjGWXbNEiul9CfMLAT9iHFAaDgL/UguYLXWPsIKPaTSG82I5Mng5tATuUC4gWPb+ggPEAYSTy95MoABoSHx9JInAxgQGhJPL3kygAGhIfH0kkdBa+2CZzgL/XKB32+Abxhl+h/g9yi5gNuACByi53OB9Q3Im7zPktDxov++wLl/+kpygeUNfAFSg2QNRYqnqAAAAABJRU5ErkJggg==",
       "tierId": "B",
       "fit": "cover",
       "order": 25
     },
     {
-      "id": "item-1786843656329",
-      "title": "Nezotoji",
-      "subtitle": "Nezotoji",
-      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAArElEQVR4Xu2SMQ7EIAwEnYqS5kSXR+QF+f+ruJbMRrGQpXDSuZjGWXbNEiul9CfMLAT9iHFAaDgL/UguYLXWPsIKPaTSG82I5Mng5tATuUC4gWPb+ggPEAYSTy95MoABoSHx9JInAxgQGhJPL3kygAGhIfH0kkdBa+2CZzgL/XKB32+Abxhl+h/g9yi5gNuACByi53OB9Q3Im7zPktDxov++wLl/+kpygeUNfAFSg2QNRYqnqAAAAABJRU5ErkJggg==",
+      "id": "item-1786843740313",
+      "title": "cloudz",
+      "subtitle": "cloudz",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABSklEQVR4AezSQUvDMBgG4Df11uqWpFocs46N7SJuu7mLf7Z3maAnBf0n/gRPutqxSk1PfRdhImK/y0ofSEj4Et58QRRG1bbQzRvWxhXTxlTMaF0xG7v9JIpcfRKGYcUCCH/7CwTqQIEFQQBWrAuwstyAbcpPsHVRgEG5NyZKKSjV2D+BfAKr9xXYxXgE9pHnYFO3znTnECx3+9lsMgbjtXosn4DrUdFfPoGr2SVYbDTYfNADs10NliYJ0qTBe+uxdfXYYj4Fk09AtAHc4fIJxNaAjc7PwF5e38CGgxTMmC4Y763Hw7QPpjtHYPIJuGcQ/eUTOHY9wLLlPZgfT7a8c+sN7pd6/H3/dr1ecgImn4B/47bn8gncPj6D/TaB7Iee8evdPDyBySfg37DtuXwCi+Epdrme9PEXu2rXa/IJtP3m/nn/noB/oD//AgAA///P/XQFAAAABklEQVQDAA8088EekXYsAAAAAElFTkSuQmCC",
       "tierId": "B",
       "fit": "cover",
       "order": 26
