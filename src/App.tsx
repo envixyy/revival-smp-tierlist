@@ -157,19 +157,43 @@ export const App: React.FC = () => {
     e.dataTransfer.effectAllowed = 'move';
   };
 
-  const handleDropItem = (targetTierId: TierId, draggedItem: TierItem) => {
+  const handleDropItem = (targetTierId: TierId, draggedItem: TierItem, targetItemId?: string) => {
     if (!isAdmin) return;
 
     setData((prev) => {
-      const filtered = prev.items.filter((i) => i.id !== draggedItem.id);
+      const otherItems = prev.items.filter((i) => i.id !== draggedItem.id);
       const updatedItem: TierItem = {
         ...draggedItem,
         tierId: targetTierId,
       };
 
+      let newItemsList: TierItem[] = [];
+
+      if (!targetItemId) {
+        // Append to the end of the items list
+        newItemsList = [...otherItems, updatedItem];
+      } else {
+        // Insert right at target item's position
+        const targetIndex = otherItems.findIndex((i) => i.id === targetItemId);
+        if (targetIndex === -1) {
+          newItemsList = [...otherItems, updatedItem];
+        } else {
+          newItemsList = [
+            ...otherItems.slice(0, targetIndex),
+            updatedItem,
+            ...otherItems.slice(targetIndex)
+          ];
+        }
+      }
+
+      const ordered = newItemsList.map((item, idx) => ({
+        ...item,
+        order: idx,
+      }));
+
       return {
         ...prev,
-        items: [...filtered, updatedItem],
+        items: ordered,
         updatedAt: new Date().toISOString(),
       };
     });

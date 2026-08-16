@@ -10,6 +10,7 @@ interface TierItemCardProps {
   onDeleteItem: (id: string) => void;
   onPreviewItem: (item: TierItem) => void;
   onQuickMoveItem?: (item: TierItem, targetTierId: TierId) => void;
+  onDropItem?: (targetTierId: TierId, draggedItem: TierItem, targetItemId?: string) => void;
 }
 
 export const TierItemCard: React.FC<TierItemCardProps> = ({
@@ -20,23 +21,62 @@ export const TierItemCard: React.FC<TierItemCardProps> = ({
   onDeleteItem,
   onPreviewItem,
   onQuickMoveItem,
+  onDropItem,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [showMoveMenu, setShowMoveMenu] = useState(false);
+  const [isCardDragOver, setIsCardDragOver] = useState(false);
 
   const tiersList: TierId[] = ['S', 'A', 'B', 'C', 'D', 'E', 'F', 'unranked'];
   const captionText = item.subtitle !== undefined ? item.subtitle : item.title;
+
+  const handleCardDragOver = (e: React.DragEvent) => {
+    if (!isAdmin) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (!isCardDragOver) setIsCardDragOver(true);
+  };
+
+  const handleCardDragLeave = (e: React.DragEvent) => {
+    if (!isAdmin) return;
+    e.preventDefault();
+    setIsCardDragOver(false);
+  };
+
+  const handleCardDrop = (e: React.DragEvent) => {
+    if (!isAdmin) return;
+    e.preventDefault();
+    e.stopPropagation();
+    setIsCardDragOver(false);
+
+    try {
+      const dataStr = e.dataTransfer.getData('application/json');
+      if (dataStr && onDropItem) {
+        const draggedItem: TierItem = JSON.parse(dataStr);
+        if (draggedItem.id !== item.id) {
+          onDropItem(item.tierId, draggedItem, item.id);
+        }
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div
       draggable={isAdmin}
       onDragStart={(e) => isAdmin && onDragStart(e, item)}
+      onDragOver={handleCardDragOver}
+      onDragLeave={handleCardDragLeave}
+      onDrop={handleCardDrop}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
         setShowMoveMenu(false);
       }}
-      className="item-card group relative"
+      className={`item-card group relative transition-all duration-150 ${
+        isCardDragOver ? 'border-l-4 border-yellow-500 scale-105 pl-1' : ''
+      }`}
       onClick={() => !isAdmin && onPreviewItem(item)}
     >
       {/* Image Container */}

@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       <div className="hero">
         <img
-          src="/revival-logo.png"
+          src="revival-logo.png"
           alt="Revival Crystal Logo"
           style={{ width: 48, height: 48, objectFit: 'contain', margin: '0 auto 8px' }}
         />

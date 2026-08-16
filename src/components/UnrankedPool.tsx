@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { TierItem } from '../types';
+import { TierItem, TierId } from '../types';
 import { TierItemCard } from './TierItemCard';
 import { UploadCloud, Plus, Sparkles, Inbox } from 'lucide-react';
 
 interface UnrankedPoolProps {
   items: TierItem[];
   isAdmin: boolean;
-  onDropItem: (targetTierId: 'unranked', item: TierItem) => void;
+  onDropItem: (targetTierId: TierId, item: TierItem, targetItemId?: string) => void;
   onDragStart: (e: React.DragEvent, item: TierItem) => void;
   onEditItem: (item: TierItem) => void;
   onDeleteItem: (id: string) => void;
@@ -133,6 +133,7 @@ export const UnrankedPool: React.FC<UnrankedPoolProps> = ({
               onEditItem={onEditItem}
               onDeleteItem={onDeleteItem}
               onPreviewItem={onPreviewItem}
+              onDropItem={onDropItem}
             />
           ))
         )}

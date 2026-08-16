@@ -7,7 +7,7 @@ interface TierRowProps {
   category: TierCategory;
   items: TierItem[];
   isAdmin: boolean;
-  onDropItem: (targetTierId: TierId, draggedItem: TierItem) => void;
+  onDropItem: (targetTierId: TierId, draggedItem: TierItem, targetItemId?: string) => void;
   onDragStart: (e: React.DragEvent, item: TierItem) => void;
   onEditItem: (item: TierItem) => void;
   onDeleteItem: (id: string) => void;
@@ -101,6 +101,7 @@ export const TierRow: React.FC<TierRowProps> = ({
               onDeleteItem={onDeleteItem}
               onPreviewItem={onPreviewItem}
               onQuickMoveItem={onQuickMoveItem}
+              onDropItem={onDropItem}
             />
           ))
         )}
