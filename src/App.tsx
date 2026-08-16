@@ -27,7 +27,7 @@ export const App: React.FC = () => {
     return INITIAL_TIERLIST_DATA;
   });
 
-  const [isAdmin, setIsAdmin] = useState<boolean>(!data.isPublished);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<'add' | 'list' | 'credits'>('add');
   const [toastMsg, setToastMsg] = useState<string | null>(null);
 
