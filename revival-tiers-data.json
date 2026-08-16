@@ -1,8 +1,8 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T00:58:00.000Z",
-  "adminPin": "1234",
+  "updatedAt": "2026-08-16T01:03:32.431Z",
+  "adminPin": "",
   "isPublished": false,
   "categories": [
     {
@@ -69,17 +69,7 @@
       "description": "Bottom Tier"
     }
   ],
-  "items": [
-    {
-      "id": "item-1",
-      "title": "Vamep",
-      "subtitle": "Vamep",
-      "imageUrl": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500&auto=format&fit=crop&q=80",
-      "tierId": "S",
-      "order": 0,
-      "fit": "cover"
-    }
-  ],
+  "items": [],
   "githubConfig": {
     "owner": "envixyy",
     "repo": "revival-smp-tierlist",
