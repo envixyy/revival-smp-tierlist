@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T01:30:53.922Z",
+  "updatedAt": "2026-08-16T01:32:35.601Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -349,6 +349,15 @@
       "tierId": "F",
       "fit": "cover",
       "order": 30
+    },
+    {
+      "id": "item-1786843951928",
+      "title": "Lumi",
+      "subtitle": "Lumi",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAvklEQVR4Xu2WPQoCMRBGp7MTAlkwVQ6QY1iZwtZmSy9g6xm8rZ0WY5u8QJbASpopXjOZn49vCIzI+aMlMcYuIjJEU495wgALCAds0dRjngloHGiApc65isflWMH3ph9pAsQE/NuBnLOWjA4kzOc3JCZgvgPvw6I9vvdbxfPqurCesJ8JmO+ALqIl3BHfvfddmL/VzwTMd2BrR+S1nrqM9jMB8x0IIWgJd7o3KaUKEzDfAd5o3Nne8OY0AdMd+AFKOVeqaec4uQAAAABJRU5ErkJggg==",
+      "tierId": "F",
+      "fit": "cover",
+      "order": 31
     }
   ],
   "githubConfig": {
