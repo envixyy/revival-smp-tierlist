@@ -32,6 +32,20 @@ export interface GitHubConfig {
   lastSynced?: string;
 }
 
+export type SuggestionStatus = 'pending' | 'approved' | 'denied';
+
+export interface SuggestionItem {
+  id: string;
+  author: string;
+  title: string;
+  subtitle?: string;
+  imageUrl?: string;
+  targetTierId: TierId;
+  description?: string;
+  status: SuggestionStatus;
+  createdAt: string;
+}
+
 export interface TierListData {
   title: string;
   subtitle: string;
@@ -40,5 +54,6 @@ export interface TierListData {
   isPublished: boolean;
   categories: TierCategory[];
   items: TierItem[];
+  suggestions?: SuggestionItem[];
   githubConfig?: GitHubConfig;
 }

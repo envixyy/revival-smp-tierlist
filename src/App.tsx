@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { TierCategory, TierItem, TierId, TierListData, GitHubConfig } from './types';
+import { TierCategory, TierItem, TierId, TierListData, GitHubConfig, SuggestionItem } from './types';
 import { INITIAL_TIERLIST_DATA } from './defaultData';
 import { Header } from './components/Header';
 import { TierRow } from './components/TierRow';
@@ -8,9 +8,10 @@ import { ItemEditorModal } from './components/ItemEditorModal';
 import { GithubSyncModal } from './components/GithubSyncModal';
 import { AdminLockModal } from './components/AdminLockModal';
 import { ItemPreviewModal } from './components/ItemPreviewModal';
+import { SuggestionsForum } from './components/SuggestionsForum';
 import html2canvas from 'html2canvas';
 import confetti from 'canvas-confetti';
-import { Sparkles, Download, Github, Upload, Crown, Users, Edit2, Trash2 } from 'lucide-react';
+import { Sparkles, Download, Github, Upload, Crown, Users, Edit2, Trash2, MessageSquare } from 'lucide-react';
 
 const STORAGE_KEY = 'revival_tiers_data_v9';
 
@@ -43,7 +44,7 @@ export const App: React.FC = () => {
   });
 
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<'add' | 'list' | 'credits'>('add');
+  const [activeTab, setActiveTab] = useState<'add' | 'list' | 'credits' | 'suggestions'>('suggestions');
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [isPublishing, setIsPublishing] = useState<boolean>(false);
 
@@ -434,6 +435,63 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleAddSuggestion = (suggestionData: Omit<SuggestionItem, 'id' | 'createdAt' | 'status'>) => {
+    const newSuggestion: SuggestionItem = {
+      ...suggestionData,
+      id: `suggestion-${Date.now()}`,
+      status: 'pending',
+      createdAt: new Date().toISOString(),
+    };
+
+    setData((prev) => ({
+      ...prev,
+      suggestions: [newSuggestion, ...(prev.suggestions || [])],
+    }));
+
+    showToast('💬 Suggestion posted to forum!');
+  };
+
+  const handleApproveSuggestion = (suggestion: SuggestionItem) => {
+    handleSaveItem({
+      title: suggestion.title,
+      subtitle: suggestion.subtitle || suggestion.title,
+      imageUrl: suggestion.imageUrl || '',
+      tierId: suggestion.targetTierId,
+      description: suggestion.description,
+      fit: 'cover',
+    });
+
+    setData((prev) => ({
+      ...prev,
+      suggestions: (prev.suggestions || []).map((s) =>
+        s.id === suggestion.id ? { ...s, status: 'approved' } : s
+      ),
+    }));
+
+    showToast(`✨ Approved "${suggestion.title}"! Added to ${suggestion.targetTierId === 'unranked' ? 'Pool' : suggestion.targetTierId + ' Tier'}.`);
+  };
+
+  const handleDenySuggestion = (suggestionId: string) => {
+    setData((prev) => ({
+      ...prev,
+      suggestions: (prev.suggestions || []).map((s) =>
+        s.id === suggestionId ? { ...s, status: 'denied' } : s
+      ),
+    }));
+
+    showToast('❌ Suggestion marked as denied.');
+  };
+
+  const handleDeleteSuggestion = (suggestionId: string) => {
+    if (window.confirm('Delete suggestion from forum?')) {
+      setData((prev) => ({
+        ...prev,
+        suggestions: (prev.suggestions || []).filter((s) => s.id !== suggestionId),
+      }));
+      showToast('Deleted suggestion.');
+    }
+  };
+
   const getTierItems = (tierId: TierId) => data.items.filter((i) => i.tierId === tierId);
 
   return (
@@ -487,7 +545,7 @@ export const App: React.FC = () => {
         onPreviewItem={setPreviewItem}
       />
 
-      {/* Admin & Credits Tab Bar */}
+      {/* Admin & Community Tab Bar */}
       <div className="admin-bar">
         {isAdmin && (
           <>
@@ -505,6 +563,12 @@ export const App: React.FC = () => {
             </div>
           </>
         )}
+        <div
+          className={`tab ${activeTab === 'suggestions' ? 'active' : ''}`}
+          onClick={() => setActiveTab('suggestions')}
+        >
+          💬 Suggestions ({(data.suggestions || []).length})
+        </div>
         <div
           className={`tab ${activeTab === 'credits' ? 'active' : ''}`}
           onClick={() => setActiveTab('credits')}
@@ -718,6 +782,18 @@ export const App: React.FC = () => {
             </div>
           </div>
         </div>
+      )}
+      {/* Suggestions Forum Tab */}
+      {activeTab === 'suggestions' && (
+        <SuggestionsForum
+          suggestions={data.suggestions || []}
+          categories={data.categories}
+          isAdmin={isAdmin}
+          onAddSuggestion={handleAddSuggestion}
+          onApproveSuggestion={handleApproveSuggestion}
+          onDenySuggestion={handleDenySuggestion}
+          onDeleteSuggestion={handleDeleteSuggestion}
+        />
       )}
 
       {/* Modals */}
