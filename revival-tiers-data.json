@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T16:37:55.240Z",
+  "updatedAt": "2026-08-16T16:39:48.058Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -127,13 +127,22 @@
       "order": 5
     },
     {
+      "id": "item-1786843211251",
+      "title": "Light",
+      "subtitle": "Light",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA4UlEQVR4Xu2UPQrCQBCF03gCbe0ESSkSJIhYikkhKgZSCvYWNhG9mxewstLCQj1IbPM+wUUE12KKr5qffbyZ2aDdDMsqg3AoMJ5ludBtRQLzGWd9wAIT8HMHkiQtq3BG404qxHFfmPUWAuvZn5gA/w7wDDljxpejlTCJpgLvnvnsbwL8O+CaGePr+UZgPj+yIt8L7GcC/DvAO+YML4ezwJlyJ1jv2hET4N8BzuRxun4Ed4L9XJiA/3OgXmu8hTtAtvlO4MzJiwN8kPBBYgK+doB///14E2g5YT778T0T4N2BJ3ZbXZn2hgufAAAAAElFTkSuQmCC",
+      "tierId": "C",
+      "fit": "cover",
+      "order": 6
+    },
+    {
       "id": "item-1786843617874",
       "title": "vocul",
       "subtitle": "vocul",
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABH0lEQVR4AeySMcrCQBCFH4HIz38IG608gaCNpY0iCoIK6gW8gAew9xzaWNpY2ecWVpZCQgjK6x4T2BSSrEUCH7xhZ2cmbzZoNdtvF1EUvb/BVZtnATx/9QA5B+7HAZTpaAYlDEO40FxqrUVtN54bwCaUHdcD5Bx4PF9QzpcTlKKVaC611qK293MD2ISy43qAgHtSGt09lCzLoBStRHOptRa19qKuV/B7DsRxDGU+m0ApegOaS621qO3933PATlh27N+BJEmgbFdzKP9/DSij4RiKdUhzqbUWtfai9u+A/YOqY/8OpGkK5XoYwIV1SN8Dtesuz7QXtX8H7B9VHft3YL3YQOntbnCx7PThwnWXZ9qL2r8DVe/c9ivdAdvQxh8AAAD//0U9xeMAAAAGSURBVAMAopZS2KgbG5IAAAAASUVORK5CYII=",
       "tierId": "C",
       "fit": "cover",
-      "order": 6
+      "order": 7
     },
     {
       "id": "item-1786843322419",
@@ -142,7 +151,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAAVUlEQVR42r3KoRHAIBBE0XOIqBOkhdQSmVKx6YVa4At2BofbZ25n7kcehDmoizvQQ3ffruBCha62riMoSAQS+y5wBQ03fiReNDiDjgdj+dDhCsaBIZjVoBUw+Pq4TwAAAABJRU5ErkJggg==",
       "tierId": "E",
       "fit": "cover",
-      "order": 7,
+      "order": 8,
       "description": "revise smp"
     },
     {
@@ -152,7 +161,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAiElEQVR4Xu2UsQoAMQhDhdKl0K1T//8/vU1OwZMMh0seBBxCKhEq2ow0v88F2AAbULn36pf23p865zittZzGGE5zTicu0N8Av2I2wAbYgIjoW38T3+MC/Q3YcRLizSpgv00JcCDqtykBDkT9NiXAgajfpoQYiKqidMRAVBWlIwaiqigdMRBVxQOUfgmEnOsQoQAAAABJRU5ErkJggg==",
       "tierId": "D",
       "fit": "cover",
-      "order": 8
+      "order": 9
     },
     {
       "id": "item-1786842631147",
@@ -162,7 +171,7 @@
       "tierId": "D",
       "fit": "cover",
       "tag": "S tier",
-      "order": 9,
+      "order": 10,
       "description": "the goat ht1 67 obsession dance scuba quiet on the creek verity aura monster"
     },
     {
@@ -172,7 +181,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA5UlEQVR4Xu3UPQrCQBAF4L1CbpBjeAhr7yAkpY0oooJgp534E2tB7II2YTtBUlhZioW1KEiagKyt7wkJIUIMTODrBubxMqwyu6oBvgLXKTpXJj+lJEDpGogdnci0DqiNct8AL2QSIHsDVPlpbgGu+FbbJOJ5xgElQPENBGPbfOIbSMNHxWJXI7oJCfAHDYxskwXfAOMbeOoF4JtQvCANL2QSIHMDXOHrWAf88TwvCL0u6QGelwDlb+Cx7gDL2YMoikDo9UHuBiRA7gb4qeVfwJVflg1wXzVBMBuA7dAFX++ABCi6gTdYmX72OE7YPwAAAABJRU5ErkJggg==",
       "tierId": "D",
       "fit": "cover",
-      "order": 10
+      "order": 11
     },
     {
       "id": "item-1786843544286",
@@ -181,7 +190,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAZElEQVR42u3NsQ2AMBBD0TgskQ2yARtQ0aVh/03oDnecpWsi2fplcq+to0dPUYtqBiSAu7sU/TWgAvzooiCO/jJsIAEoR3XMgIE9gLMjqhrfNPAPTCCq2vwykAAGEFVtRAYSwAsqQZIBeddmxQAAAABJRU5ErkJggg==",
       "tierId": "D",
       "fit": "cover",
-      "order": 11,
+      "order": 12,
       "description": "mountainwolfgayer"
     },
     {
@@ -191,7 +200,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAIVBMVEVvkqjw4NXs2s7p2NvKvcGTssmLqsCxeYFUepFQdo17R1Y3RvuIAAAAUElEQVR42mOgDkhDAuQKhIampYWGQkhyBSh3R0cHA8PMmRASxCNPwMVl1SolpY6OVatcXMgVMDYuLxcEgvJyY2OyBMC+UVICCSgpgbhkCAAAJg6KIe1QxZUAAAAASUVORK5CYII=",
       "tierId": "D",
       "fit": "cover",
-      "order": 12
+      "order": 13
     },
     {
       "id": "item-1786842658561",
@@ -200,7 +209,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA4ElEQVR4Xu2WsQqDMBRFM3YsXfyB4ujHOHQpncTBRRBnQRwEwVnwA+oP+Cv9n3TNPUvo0ixvOEtueO9yX0ji1nX1Idu2CcdxCOd5CsuyCPu+C9TZz3HBDPw9gXmefcg4jgINxc4AYT1iBtIn0Pe9D6nr+ieqqvoJ9jMD6RMoisKHlGUpOOcE6uR5vQjU8zwXzED6BDjjpmmEmP5+PYTP/SZQZz0zkD4BvvfTNAmcGXXe7bwHhmEQ2M8MpE+AfzTOKMsyoes6oW1bgftZj/3MQPoE+GfjzGI6ie2nbgaSJ/AFJvL1uUNeG/UAAAAASUVORK5CYII=",
       "tierId": "D",
       "fit": "cover",
-      "order": 13
+      "order": 14
     },
     {
       "id": "item-1786842715924",
@@ -208,15 +217,6 @@
       "subtitle": "West",
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAyUlEQVR4AexTMQrDMBATxp0KhTyzU4cOfUH/2bVTljZQE0i5TTjF4kiDlwsIBCffCYmkYRiWnkjo/IUBdwI5Z7TgbdRtwHtA6cPAKoG6XxWhmqt9KwNq4b/nYUAmUEoBQ1XAWuNKLw2oBVvnYSBN0wTGPM9gXPAGg2e/OGuN1xq+ZTwq6J/ANX/AeBxGMG5HgHEuI1pgrXHeZZxvGU9b/+Ot78OAO4H7a0EL3krcBrwHlD4MpLrP03NBCyrS1lub1feigt0TUJV9AQAA//91W4BuAAAABklEQVQDADCDB9BsqHIFAAAAAElFTkSuQmCC",
       "tierId": "D",
-      "fit": "cover",
-      "order": 14
-    },
-    {
-      "id": "item-1786843211251",
-      "title": "Light",
-      "subtitle": "Light",
-      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA4UlEQVR4Xu2UPQrCQBCF03gCbe0ESSkSJIhYikkhKgZSCvYWNhG9mxewstLCQj1IbPM+wUUE12KKr5qffbyZ2aDdDMsqg3AoMJ5ludBtRQLzGWd9wAIT8HMHkiQtq3BG404qxHFfmPUWAuvZn5gA/w7wDDljxpejlTCJpgLvnvnsbwL8O+CaGePr+UZgPj+yIt8L7GcC/DvAO+YML4ezwJlyJ1jv2hET4N8BzuRxun4Ed4L9XJiA/3OgXmu8hTtAtvlO4MzJiwN8kPBBYgK+doB///14E2g5YT778T0T4N2BJ3ZbXZn2hgufAAAAAElFTkSuQmCC",
-      "tierId": "C",
       "fit": "cover",
       "order": 15
     },
