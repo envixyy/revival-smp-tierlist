@@ -53,7 +53,6 @@ export const GithubSyncModal: React.FC<GithubSyncModalProps> = ({
       };
       const jsonContent = JSON.stringify(payloadData, null, 2);
 
-      // Check if file already exists to get SHA for update
       let sha: string | undefined = undefined;
       try {
         const getRes = await fetch(url, {
@@ -70,7 +69,6 @@ export const GithubSyncModal: React.FC<GithubSyncModalProps> = ({
         console.warn('File does not exist yet or error checking SHA:', e);
       }
 
-      // Convert content to Base64 (handling utf-8 safely)
       const base64Content = btoa(
         encodeURIComponent(jsonContent).replace(/%([0-9A-F]{2})/g, function toSolidBytes(_match, p1) {
           return String.fromCharCode(parseInt(p1, 16));
@@ -185,193 +183,169 @@ export const GithubSyncModal: React.FC<GithubSyncModalProps> = ({
 
   return (
     <div className="modal-overlay animate-pop">
-      <div className="glass-panel w-full max-w-xl p-6 rounded-3xl border border-slate-700/80 shadow-2xl relative">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-full bg-slate-800/60 hover:bg-slate-800 transition-colors"
-        >
-          <X className="w-5 h-5" />
+      <div className="glass-panel" style={{ maxWidth: '560px' }}>
+        <button onClick={onClose} className="admin-lock-close-btn" type="button">
+          <X style={{ width: 16, height: 16 }} />
         </button>
 
-        <div className="flex items-center gap-3 mb-2">
-          <div className="p-2.5 rounded-2xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30">
-            <Github className="w-6 h-6" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+          <div style={{ padding: '8px', borderRadius: '12px', background: 'rgba(234, 179, 8, 0.15)', color: '#ffd700', border: '1px solid rgba(234, 179, 8, 0.3)' }}>
+            <Github style={{ width: 22, height: 22 }} />
           </div>
           <div>
-            <h3 className="text-xl font-bold font-heading text-slate-100">
-              Backend Sync & GitHub Publishing
-            </h3>
-            <p className="text-xs text-slate-400">
-              Publish tier list changes straight to GitHub or export backup files.
-            </p>
+            <h3 className="modal-title" style={{ margin: 0 }}>Backend Sync & GitHub Publishing</h3>
+            <p className="modal-subtitle" style={{ margin: 0 }}>Publish tier list changes straight to GitHub or export backup files.</p>
           </div>
         </div>
 
         {/* Tab switch */}
-        <div className="flex items-center gap-2 my-4 border-b border-slate-800 pb-3">
+        <div className="tab-group" style={{ marginBottom: '14px' }}>
           <button
             onClick={() => setActiveTab('github')}
-            className={`text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-2 transition-all ${
-              activeTab === 'github'
-                ? 'bg-indigo-600 text-white shadow-lg'
-                : 'bg-slate-900 text-slate-400 hover:text-slate-200'
-            }`}
+            className={`modal-tab-btn ${activeTab === 'github' ? 'active' : ''}`}
           >
-            <Github className="w-4 h-4" /> GitHub REST Sync
+            <Github style={{ width: 14, height: 14, display: 'inline-block', verticalAlign: 'middle', marginRight: 4 }} /> GitHub REST Sync
           </button>
           <button
             onClick={() => setActiveTab('export')}
-            className={`text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-2 transition-all ${
-              activeTab === 'export'
-                ? 'bg-indigo-600 text-white shadow-lg'
-                : 'bg-slate-900 text-slate-400 hover:text-slate-200'
-            }`}
+            className={`modal-tab-btn ${activeTab === 'export' ? 'active' : ''}`}
           >
-            <FileCode className="w-4 h-4" /> JSON Export / Import
+            <FileCode style={{ width: 14, height: 14, display: 'inline-block', verticalAlign: 'middle', marginRight: 4 }} /> JSON Export / Import
           </button>
         </div>
 
         {statusMsg && (
           <div
-            className={`p-3 rounded-2xl mb-4 text-xs flex items-center gap-2 border ${
-              statusMsg.type === 'success'
-                ? 'bg-emerald-950/60 border-emerald-500/40 text-emerald-300'
-                : statusMsg.type === 'error'
-                ? 'bg-rose-950/60 border-rose-500/40 text-rose-300'
-                : 'bg-indigo-950/60 border-indigo-500/40 text-indigo-300'
-            }`}
+            style={{
+              padding: '10px 14px',
+              borderRadius: '10px',
+              marginBottom: '14px',
+              fontSize: '0.78rem',
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              border: '1px solid',
+              background: statusMsg.type === 'success' ? 'rgba(6, 214, 160, 0.15)' : statusMsg.type === 'error' ? 'rgba(255, 78, 80, 0.15)' : 'rgba(234, 179, 8, 0.15)',
+              borderColor: statusMsg.type === 'success' ? '#06d6a0' : statusMsg.type === 'error' ? '#ff4e50' : '#eab308',
+              color: statusMsg.type === 'success' ? '#06d6a0' : statusMsg.type === 'error' ? '#ff4e50' : '#ffd700',
+            }}
           >
             {statusMsg.type === 'success' ? (
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <CheckCircle2 style={{ width: 16, height: 16, flexShrink: 0 }} />
             ) : statusMsg.type === 'error' ? (
-              <AlertCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />
+              <AlertCircle style={{ width: 16, height: 16, flexShrink: 0 }} />
             ) : (
-              <RefreshCw className="w-4 h-4 text-indigo-400 animate-spin flex-shrink-0" />
+              <RefreshCw style={{ width: 16, height: 16, flexShrink: 0 }} />
             )}
             <span>{statusMsg.text}</span>
           </div>
         )}
 
         {activeTab === 'github' ? (
-          <div className="space-y-3.5">
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="text-xs font-semibold text-slate-300 mb-1 block">
-                  GitHub Username / Owner
-                </label>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div className="form-row-2">
+              <div className="form-group">
+                <label>GitHub Username / Owner</label>
                 <input
                   type="text"
-                  placeholder="e.g. vix"
+                  placeholder="e.g. envixyy"
                   value={config.owner}
                   onChange={(e) => setConfig({ ...config, owner: e.target.value })}
-                  className="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:border-indigo-500"
                 />
               </div>
 
-              <div>
-                <label className="text-xs font-semibold text-slate-300 mb-1 block">
-                  Repository Name
-                </label>
+              <div className="form-group">
+                <label>Repository Name</label>
                 <input
                   type="text"
-                  placeholder="e.g. revival-tiers"
+                  placeholder="e.g. revival-smp-tierlist"
                   value={config.repo}
                   onChange={(e) => setConfig({ ...config, repo: e.target.value })}
-                  className="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:border-indigo-500"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="text-xs font-semibold text-slate-300 mb-1 block">
-                  Branch
-                </label>
+            <div className="form-row-2">
+              <div className="form-group">
+                <label>Branch</label>
                 <input
                   type="text"
                   placeholder="main"
                   value={config.branch}
                   onChange={(e) => setConfig({ ...config, branch: e.target.value })}
-                  className="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 focus:border-indigo-500"
                 />
               </div>
 
-              <div>
-                <label className="text-xs font-semibold text-slate-300 mb-1 block">
-                  File Path
-                </label>
+              <div className="form-group">
+                <label>File Path</label>
                 <input
                   type="text"
                   placeholder="revival-tiers-data.json"
                   value={config.filePath}
                   onChange={(e) => setConfig({ ...config, filePath: e.target.value })}
-                  className="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 focus:border-indigo-500"
                 />
               </div>
             </div>
 
-            <div>
-              <label className="text-xs font-semibold text-slate-300 mb-1 block">
-                GitHub Personal Access Token (PAT)
-              </label>
+            <div className="form-group">
+              <label>GitHub Personal Access Token (PAT)</label>
               <input
                 type="password"
                 placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
                 value={config.token}
                 onChange={(e) => setConfig({ ...config, token: e.target.value })}
-                className="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-slate-100 placeholder-slate-500 focus:border-indigo-500 font-mono"
+                style={{ fontFamily: 'monospace' }}
               />
-              <p className="text-[10px] text-slate-400 mt-1">
-                Token needs <code className="bg-slate-800 px-1 py-0.5 rounded text-indigo-300">repo</code> scope permission to push commits directly to GitHub.
-              </p>
+              <span className="field-hint">Token needs <code>repo</code> scope permission to commit to GitHub.</span>
             </div>
 
-            <div className="pt-3 border-t border-slate-800 flex items-center justify-between gap-3">
+            <div className="btn-row" style={{ justifyContent: 'space-between' }}>
               <button
                 type="button"
                 disabled={isLoading}
                 onClick={handlePullFromGithub}
-                className="btn-secondary text-xs flex items-center gap-1.5"
+                className="btn-secondary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
               >
-                <DownloadCloud className="w-4 h-4 text-indigo-400" /> Pull From GitHub
+                <DownloadCloud style={{ width: 14, height: 14 }} /> Pull From GitHub
               </button>
 
               <button
                 type="button"
                 disabled={isLoading}
                 onClick={handlePushToGithub}
-                className="btn-primary text-xs flex items-center gap-1.5"
+                className="btn-primary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
               >
-                <UploadCloud className="w-4 h-4" /> Push & Commit to GitHub
+                <UploadCloud style={{ width: 14, height: 14 }} /> Push & Commit to GitHub
               </button>
             </div>
           </div>
         ) : (
-          <div className="space-y-3.5">
-            <div className="flex items-center gap-2">
-              <button onClick={handleCopyJson} className="btn-secondary text-xs">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button onClick={handleCopyJson} className="btn-secondary" style={{ fontSize: '0.75rem' }}>
                 Copy JSON Payload
               </button>
-              <button onClick={handleDownloadJson} className="btn-secondary text-xs">
+              <button onClick={handleDownloadJson} className="btn-secondary" style={{ fontSize: '0.75rem' }}>
                 Download JSON File
               </button>
             </div>
 
-            <div>
-              <label className="text-xs font-semibold text-slate-300 mb-1 block">
-                Paste JSON to Import
-              </label>
+            <div className="form-group">
+              <label>Paste JSON to Import</label>
               <textarea
                 rows={5}
                 value={jsonText}
                 onChange={(e) => setJsonText(e.target.value)}
                 placeholder="Paste tier list JSON backup data here..."
-                className="w-full bg-slate-950/80 border border-slate-700 rounded-xl p-3 text-xs text-slate-100 font-mono focus:border-indigo-500"
+                style={{ fontFamily: 'monospace', fontSize: '0.78rem', resize: 'none' }}
               />
             </div>
 
-            <div className="flex justify-end">
-              <button onClick={handleImportJson} className="btn-primary text-xs">
+            <div className="btn-row">
+              <button onClick={handleImportJson} className="btn-primary">
                 Import JSON Data
               </button>
             </div>

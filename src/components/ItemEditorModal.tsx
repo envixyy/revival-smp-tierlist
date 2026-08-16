@@ -94,62 +94,51 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
 
   return (
     <div className="modal-overlay animate-pop">
-      <div className="glass-panel w-full max-w-lg p-6 rounded-3xl border border-[#27272a] shadow-2xl relative bg-[#141417]">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 text-zinc-400 hover:text-white rounded-full bg-[#1e1e22] hover:bg-[#27272a] transition-colors border border-[#27272a]"
-        >
-          <X className="w-4 h-4" />
+      <div className="glass-panel">
+        <button onClick={onClose} className="admin-lock-close-btn" type="button">
+          <X style={{ width: 16, height: 16 }} />
         </button>
 
-        <h3 className="text-xl font-bold font-heading text-white mb-1 flex items-center gap-2">
-          {editingItem ? 'Edit Tier Item & Caption' : 'Add New Tier Item'}
+        <h3 className="modal-title">
+          {editingItem ? '✏️ Edit Tier Item & Caption' : '✨ Add New Tier Item'}
         </h3>
-        <p className="text-xs text-zinc-400 mb-5">
+        <p className="modal-subtitle">
           Upload an image, set custom caption text under the card, and assign to a tier.
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit}>
           {/* Image Source Tabs */}
-          <div>
-            <div className="flex items-center gap-2 mb-2">
+          <div className="form-group">
+            <div className="tab-group">
               <button
                 type="button"
                 onClick={() => setActiveTab('upload')}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-colors ${
-                  activeTab === 'upload'
-                    ? 'bg-purple-600 text-white'
-                    : 'bg-[#1e1e22] text-zinc-400 hover:text-zinc-200 border border-[#27272a]'
-                }`}
+                className={`modal-tab-btn ${activeTab === 'upload' ? 'active' : ''}`}
               >
-                <Upload className="w-3.5 h-3.5" /> Upload File
+                <Upload style={{ width: 14, height: 14, display: 'inline-block', verticalAlign: 'middle', marginRight: 4 }} /> Upload File
               </button>
               <button
                 type="button"
                 onClick={() => setActiveTab('url')}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-colors ${
-                  activeTab === 'url'
-                    ? 'bg-purple-600 text-white'
-                    : 'bg-[#1e1e22] text-zinc-400 hover:text-zinc-200 border border-[#27272a]'
-                }`}
+                className={`modal-tab-btn ${activeTab === 'url' ? 'active' : ''}`}
               >
-                <Link className="w-3.5 h-3.5" /> Image Web URL
+                <Link style={{ width: 14, height: 14, display: 'inline-block', verticalAlign: 'middle', marginRight: 4 }} /> Image Web URL
               </button>
             </div>
 
             {activeTab === 'upload' ? (
-              <div className="border-2 border-dashed border-[#27272a] hover:border-purple-500 rounded-2xl p-4 text-center bg-[#18181c] transition-colors cursor-pointer relative">
+              <div className="file-drop-box">
                 <input
                   type="file"
                   accept="image/*"
                   onChange={handleFileChange}
-                  className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+                  style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }}
                 />
-                <Upload className="w-6 h-6 text-purple-400 mx-auto mb-1" />
-                <p className="text-xs font-semibold text-zinc-200">
+                <Upload style={{ width: 28, height: 28, color: '#eab308', margin: '0 auto 6px', display: 'block' }} />
+                <p style={{ fontSize: '0.8rem', fontWeight: 700, color: '#f0f0f0' }}>
                   Click to browse or drop an image file here
                 </p>
-                <p className="text-[10px] text-zinc-400 mt-1">
+                <p style={{ fontSize: '0.68rem', color: '#888', marginTop: 2 }}>
                   Supports PNG, JPG, GIF, WEBP, SVG
                 </p>
               </div>
@@ -160,36 +149,33 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
                   placeholder="https://example.com/image.jpg"
                   value={imageUrl}
                   onChange={(e) => setImageUrl(e.target.value)}
-                  className="w-full bg-[#18181c] border border-[#27272a] rounded-xl px-3.5 py-2 text-sm text-white placeholder-zinc-500 focus:border-purple-500"
                 />
               </div>
             )}
           </div>
 
-          {/* Preview */}
+          {/* Image Preview Box */}
           {imageUrl && (
-            <div className="bg-[#18181c] p-3 rounded-2xl border border-[#27272a] flex items-center gap-4">
-              <div className="w-16 h-16 rounded-xl overflow-hidden bg-[#0c0c0e] border border-[#27272a] flex-shrink-0 flex items-center justify-center">
+            <div className="preview-box">
+              <div className="preview-thumb">
                 <img
                   src={imageUrl}
                   alt="Preview"
-                  className={`w-full h-full ${fit === 'contain' ? 'object-contain p-1' : 'object-cover'}`}
+                  style={{ width: '100%', height: '100%', objectFit: fit }}
                 />
               </div>
-              <div className="overflow-hidden flex-1">
-                <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Preview</p>
-                <p className="text-sm font-bold text-white truncate">{title || 'Item Title'}</p>
-                <p className="text-xs text-purple-300 font-bold truncate">
-                  Caption under card: {subtitle || title || 'Subtitle'}
-                </p>
+              <div className="preview-info">
+                <span className="preview-tag">Preview</span>
+                <div className="preview-title">{title || 'Item Title'}</div>
+                <div className="preview-subtitle">Caption: {subtitle || title || 'Subtitle'}</div>
               </div>
             </div>
           )}
 
-          {/* Caption Input - Prominent */}
-          <div>
-            <label className="text-xs font-semibold text-purple-300 mb-1 flex items-center gap-1.5">
-              <AlignCenter className="w-3.5 h-3.5 text-purple-400" /> Caption Text (Text Shown Under Card)
+          {/* Caption Input */}
+          <div className="form-group">
+            <label>
+              <AlignCenter style={{ width: 14, height: 14 }} /> Caption Text (Text Shown Under Card)
             </label>
             <input
               type="text"
@@ -199,37 +185,30 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
                 setSubtitle(e.target.value);
                 if (!title) setTitle(e.target.value);
               }}
-              className="w-full bg-[#18181c] border border-purple-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white font-semibold placeholder-zinc-500 focus:border-purple-500"
             />
-            <p className="text-[10px] text-zinc-400 mt-1">
-              This caption is displayed directly at the bottom of the card under the image.
-            </p>
+            <span className="field-hint">This caption is displayed directly at the bottom of the card under the image.</span>
           </div>
 
           {/* Title Input */}
-          <div>
-            <label className="text-xs font-semibold text-zinc-300 mb-1 flex items-center gap-1.5">
-              <Type className="w-3.5 h-3.5 text-purple-400" /> Item Title / Name
+          <div className="form-group">
+            <label>
+              <Type style={{ width: 14, height: 14 }} /> Item Title / Name
             </label>
             <input
               type="text"
               placeholder="e.g., Vamep, Cyberpunk 2077"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full bg-[#18181c] border border-[#27272a] rounded-xl px-3.5 py-2 text-sm text-white placeholder-zinc-500 focus:border-purple-500"
             />
           </div>
 
-          {/* Row: Tier & Crop Fit */}
-          <div className="grid grid-cols-2 gap-3">
+          {/* Tier & Fit row */}
+          <div className="form-row-2">
             <div>
-              <label className="text-xs font-semibold text-zinc-300 mb-1 block">
-                Assign to Tier
-              </label>
+              <label>Assign to Tier</label>
               <select
                 value={tierId}
                 onChange={(e) => setTierId(e.target.value as TierId)}
-                className="w-full bg-[#18181c] border border-[#27272a] rounded-xl px-3 py-2 text-sm text-white focus:border-purple-500"
               >
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -241,13 +220,10 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-zinc-300 mb-1 block">
-                Image Crop / Fit
-              </label>
+              <label>Image Crop / Fit</label>
               <select
                 value={fit}
                 onChange={(e) => setFit(e.target.value as 'cover' | 'contain')}
-                className="w-full bg-[#18181c] border border-[#27272a] rounded-xl px-3 py-2 text-sm text-white focus:border-purple-500"
               >
                 <option value="cover">Cover (Fill Card)</option>
                 <option value="contain">Contain (Fit Whole Image)</option>
@@ -255,46 +231,38 @@ export const ItemEditorModal: React.FC<ItemEditorModalProps> = ({
             </div>
           </div>
 
-          {/* Tag input */}
-          <div>
-            <label className="text-xs font-semibold text-zinc-300 mb-1 flex items-center gap-1.5">
-              <Tag className="w-3.5 h-3.5 text-purple-400" /> Badge / Tag (Optional)
+          {/* Tag Input */}
+          <div className="form-group">
+            <label>
+              <Tag style={{ width: 14, height: 14 }} /> Badge / Tag (Optional)
             </label>
             <input
               type="text"
               placeholder="e.g., GOAT, NEW, OP"
               value={tag}
               onChange={(e) => setTag(e.target.value)}
-              className="w-full bg-[#18181c] border border-[#27272a] rounded-xl px-3.5 py-2 text-sm text-white placeholder-zinc-500 focus:border-purple-500"
             />
           </div>
 
-          {/* Description input */}
-          <div>
-            <label className="text-xs font-semibold text-zinc-300 mb-1 flex items-center gap-1.5">
-              📝 Description (Optional)
-            </label>
+          {/* Description Input */}
+          <div className="form-group">
+            <label>📝 Description (Optional)</label>
             <textarea
               rows={3}
               placeholder="Write a description about this person/item..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full bg-[#18181c] border border-[#27272a] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:border-purple-500 resize-none"
+              style={{ resize: 'none' }}
             />
-            <p className="text-[10px] text-zinc-400 mt-1">
-              Shown when visitors click on this item.
-            </p>
+            <span className="field-hint">Shown when visitors click on this item.</span>
           </div>
 
-          <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#27272a]">
-            <button
-              type="button"
-              onClick={onClose}
-              className="btn-secondary text-xs"
-            >
+          {/* Form Actions */}
+          <div className="btn-row">
+            <button type="button" onClick={onClose} className="btn-secondary">
               Cancel
             </button>
-            <button type="submit" className="btn-primary text-xs">
+            <button type="submit" className="btn-primary">
               {editingItem ? 'Save Changes' : 'Create Item'}
             </button>
           </div>
