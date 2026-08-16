@@ -19,7 +19,22 @@ export const App: React.FC = () => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (parsed.githubConfig) {
+          if (!parsed.githubConfig.owner) parsed.githubConfig.owner = 'envixyy';
+          if (!parsed.githubConfig.repo) parsed.githubConfig.repo = 'revival-smp-tierlist';
+          if (!parsed.githubConfig.branch) parsed.githubConfig.branch = 'main';
+          if (!parsed.githubConfig.filePath) parsed.githubConfig.filePath = 'revival-tiers-data.json';
+        } else {
+          parsed.githubConfig = {
+            owner: 'envixyy',
+            repo: 'revival-smp-tierlist',
+            branch: 'main',
+            filePath: 'revival-tiers-data.json',
+            token: ''
+          };
+        }
+        return parsed;
       } catch (e) {
         console.error('Failed to parse state:', e);
       }
@@ -344,7 +359,7 @@ export const App: React.FC = () => {
       try {
         const getRes = await fetch(url, {
           headers: {
-            Authorization: `token ${config.token}`,
+            Authorization: `Bearer ${config.token}`,
             Accept: 'application/vnd.github.v3+json',
           },
         });
@@ -365,7 +380,7 @@ export const App: React.FC = () => {
       const commitRes = await fetch(url, {
         method: 'PUT',
         headers: {
-          Authorization: `token ${config.token}`,
+          Authorization: `Bearer ${config.token}`,
           Accept: 'application/vnd.github.v3+json',
           'Content-Type': 'application/json',
         },

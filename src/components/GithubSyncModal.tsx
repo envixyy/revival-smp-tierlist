@@ -58,7 +58,7 @@ export const GithubSyncModal: React.FC<GithubSyncModalProps> = ({
       try {
         const getRes = await fetch(url, {
           headers: {
-            Authorization: `token ${config.token}`,
+            Authorization: `Bearer ${config.token}`,
             Accept: 'application/vnd.github.v3+json',
           },
         });
@@ -80,7 +80,7 @@ export const GithubSyncModal: React.FC<GithubSyncModalProps> = ({
       const commitRes = await fetch(url, {
         method: 'PUT',
         headers: {
-          Authorization: `token ${config.token}`,
+          Authorization: `Bearer ${config.token}`,
           Accept: 'application/vnd.github.v3+json',
           'Content-Type': 'application/json',
         },
