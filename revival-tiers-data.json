@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T02:27:51.204Z",
+  "updatedAt": "2026-08-16T15:32:22.226Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -146,24 +146,13 @@
       "description": "revise smp"
     },
     {
-      "id": "item-1786844462630",
+      "id": "item-1786894332307",
       "title": "Zemmbyy",
       "subtitle": "Zemmbyy",
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAiElEQVR4Xu2UsQoAMQhDhdKl0K1T//8/vU1OwZMMh0seBBxCKhEq2ow0v88F2AAbULn36pf23p865zittZzGGE5zTicu0N8Av2I2wAbYgIjoW38T3+MC/Q3YcRLizSpgv00JcCDqtykBDkT9NiXAgajfpoQYiKqidMRAVBWlIwaiqigdMRBVxQOUfgmEnOsQoQAAAABJRU5ErkJggg==",
-      "tierId": "E",
-      "fit": "cover",
-      "order": 8,
-      "description": "zembabwe"
-    },
-    {
-      "id": "item-1786843544286",
-      "title": "Mountainwolfgayer",
-      "subtitle": "Mountainwolfgayer",
-      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAZElEQVR42u3NsQ2AMBBD0TgskQ2yARtQ0aVh/03oDnecpWsi2fplcq+to0dPUYtqBiSAu7sU/TWgAvzooiCO/jJsIAEoR3XMgIE9gLMjqhrfNPAPTCCq2vwykAAGEFVtRAYSwAsqQZIBeddmxQAAAABJRU5ErkJggg==",
       "tierId": "D",
       "fit": "cover",
-      "order": 9,
-      "description": "mountainwolfgayer"
+      "order": 8
     },
     {
       "id": "item-1786842631147",
@@ -173,7 +162,7 @@
       "tierId": "D",
       "fit": "cover",
       "tag": "S tier",
-      "order": 10,
+      "order": 9,
       "description": "the goat ht1 67 obsession dance scuba quiet on the creek verity aura monster"
     },
     {
@@ -183,7 +172,17 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA5UlEQVR4Xu3UPQrCQBAF4L1CbpBjeAhr7yAkpY0oooJgp534E2tB7II2YTtBUlhZioW1KEiagKyt7wkJIUIMTODrBubxMqwyu6oBvgLXKTpXJj+lJEDpGogdnci0DqiNct8AL2QSIHsDVPlpbgGu+FbbJOJ5xgElQPENBGPbfOIbSMNHxWJXI7oJCfAHDYxskwXfAOMbeOoF4JtQvCANL2QSIHMDXOHrWAf88TwvCL0u6QGelwDlb+Cx7gDL2YMoikDo9UHuBiRA7gb4qeVfwJVflg1wXzVBMBuA7dAFX++ABCi6gTdYmX72OE7YPwAAAABJRU5ErkJggg==",
       "tierId": "D",
       "fit": "cover",
-      "order": 11
+      "order": 10
+    },
+    {
+      "id": "item-1786843544286",
+      "title": "Mountainwolfgayer",
+      "subtitle": "Mountainwolfgayer",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAZElEQVR42u3NsQ2AMBBD0TgskQ2yARtQ0aVh/03oDnecpWsi2fplcq+to0dPUYtqBiSAu7sU/TWgAvzooiCO/jJsIAEoR3XMgIE9gLMjqhrfNPAPTCCq2vwykAAGEFVtRAYSwAsqQZIBeddmxQAAAABJRU5ErkJggg==",
+      "tierId": "D",
+      "fit": "cover",
+      "order": 11,
+      "description": "mountainwolfgayer"
     },
     {
       "id": "item-1786842658561",
