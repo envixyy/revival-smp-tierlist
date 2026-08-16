@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T15:34:30.615Z",
+  "updatedAt": "2026-08-16T16:35:57.247Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -185,13 +185,22 @@
       "description": "mountainwolfgayer"
     },
     {
+      "id": "item-1786898106603",
+      "title": "Frosty",
+      "subtitle": "Frosty",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAIVBMVEVvkqjw4NXs2s7p2NvKvcGTssmLqsCxeYFUepFQdo17R1Y3RvuIAAAAUElEQVR42mOgDkhDAuQKhIampYWGQkhyBSh3R0cHA8PMmRASxCNPwMVl1SolpY6OVatcXMgVMDYuLxcEgvJyY2OyBMC+UVICCSgpgbhkCAAAJg6KIe1QxZUAAAAASUVORK5CYII=",
+      "tierId": "D",
+      "fit": "cover",
+      "order": 12
+    },
+    {
       "id": "item-1786842658561",
       "title": "Joy Boy",
       "subtitle": "Joy Boy",
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA4ElEQVR4Xu2WsQqDMBRFM3YsXfyB4ujHOHQpncTBRRBnQRwEwVnwA+oP+Cv9n3TNPUvo0ixvOEtueO9yX0ji1nX1Idu2CcdxCOd5CsuyCPu+C9TZz3HBDPw9gXmefcg4jgINxc4AYT1iBtIn0Pe9D6nr+ieqqvoJ9jMD6RMoisKHlGUpOOcE6uR5vQjU8zwXzED6BDjjpmmEmP5+PYTP/SZQZz0zkD4BvvfTNAmcGXXe7bwHhmEQ2M8MpE+AfzTOKMsyoes6oW1bgftZj/3MQPoE+GfjzGI6ie2nbgaSJ/AFJvL1uUNeG/UAAAAASUVORK5CYII=",
       "tierId": "D",
       "fit": "cover",
-      "order": 12
+      "order": 13
     },
     {
       "id": "item-1786842715924",
@@ -200,7 +209,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAyUlEQVR4AexTMQrDMBATxp0KhTyzU4cOfUH/2bVTljZQE0i5TTjF4kiDlwsIBCffCYmkYRiWnkjo/IUBdwI5Z7TgbdRtwHtA6cPAKoG6XxWhmqt9KwNq4b/nYUAmUEoBQ1XAWuNKLw2oBVvnYSBN0wTGPM9gXPAGg2e/OGuN1xq+ZTwq6J/ANX/AeBxGMG5HgHEuI1pgrXHeZZxvGU9b/+Ot78OAO4H7a0EL3krcBrwHlD4MpLrP03NBCyrS1lub1feigt0TUJV9AQAA//91W4BuAAAABklEQVQDADCDB9BsqHIFAAAAAElFTkSuQmCC",
       "tierId": "D",
       "fit": "cover",
-      "order": 13
+      "order": 14
     },
     {
       "id": "item-1786843211251",
@@ -209,7 +218,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA4UlEQVR4Xu2UPQrCQBCF03gCbe0ESSkSJIhYikkhKgZSCvYWNhG9mxewstLCQj1IbPM+wUUE12KKr5qffbyZ2aDdDMsqg3AoMJ5ludBtRQLzGWd9wAIT8HMHkiQtq3BG404qxHFfmPUWAuvZn5gA/w7wDDljxpejlTCJpgLvnvnsbwL8O+CaGePr+UZgPj+yIt8L7GcC/DvAO+YML4ezwJlyJ1jv2hET4N8BzuRxun4Ed4L9XJiA/3OgXmu8hTtAtvlO4MzJiwN8kPBBYgK+doB///14E2g5YT778T0T4N2BJ3ZbXZn2hgufAAAAAElFTkSuQmCC",
       "tierId": "C",
       "fit": "cover",
-      "order": 14
+      "order": 15
     },
     {
       "id": "item-1786842770797",
@@ -218,7 +227,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAnklEQVR42mN4t+cqTRHDqAUkWRBmogJHyOI3Q6uwIlx6Ry0gaMFoMh21YNQCNAvqvcPgKMPUAo48FNXgCCKLiVz1TOAoWscKjvJd/eBo1ALCFiBzMs0c4QjZgv+Ll2FFyBZk2QbAEbJDRy0gzYL/n98j0JqZCPTjDVb0ZfJcOELWO2oBaRYgZ5DZnj5w9Pv1PZJQm4MPHCGbOWoBQQsAPhK9Ov6hQw4AAAAASUVORK5CYII=",
       "tierId": "C",
       "fit": "cover",
-      "order": 15
+      "order": 16
     },
     {
       "id": "item-1786842822335",
@@ -227,7 +236,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAoklEQVR4Xu3WsQ2DQBBE0auLEkwVuAwnpDTkAiy5AUduw6IBSLlHsHIAZ1kb/IQdVqOZRaLch37Z8r5dK6ZLV6E+wn3Oiw98IQ00T8BKrEzUi/rwBkS9qBf1aaBEETn/Fvd51Gng/xOwc2/i8ATSQJjAa/4sW8bno8K537moj/algfYJ2KFHIupFvahPA7+XgB0dzS6Bs0kDu7/is0kDzRNYAYhJc0fQqHEYAAAAAElFTkSuQmCC",
       "tierId": "E",
       "fit": "cover",
-      "order": 16
+      "order": 17
     },
     {
       "id": "item-1786842850528",
@@ -236,7 +245,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAABA0lEQVR4XmPYcvvrf2RcuP4DCs5wTUbB84qmo+Bir1wUXBKcj4LRzUO3jwFdAF3DqANoHgItsXX/kTF6nKLH+RmtULyYkH50+VEHDHwI7FKK/I+MTyjHo2D0OL7gFYeCd+vEo2B0eXTz0O0bdcDAh8ByxcD/yHiWnDcKRpdHj3N09V/nzcKL0c0bdcDAhwB6HKZLqqDgreo2KPj7hrV4Mbp6dPPQ7Rt1wMCHAHocnV/6DAXnWr5GwT+3b8WL0dWjm4du36gDBj4ETrlG/kfG6GDmuU8o+PeTR3gxunp0gG7fqAMGPgTQy+Yr8QUo+OeRYygYPc7RMbp6dPPQ7Rt1wICHAACY9JGXOKNkqgAAAABJRU5ErkJggg==",
       "tierId": "E",
       "fit": "cover",
-      "order": 17
+      "order": 18
     },
     {
       "id": "item-1786842878927",
@@ -245,7 +254,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAmklEQVR42u2VMQ7CMAxFe4ZQYSyF+1+mA11ARYKpQgiukFA25y9frjL76U2R4zd6UMapKQScYQwR6A4gmaBQQCPQH8jnbO4I0JkI9AdgfxYAw4gAEegPHEVMBQRQggDsPQJ+YASUUK+zWW5NdnBGIAJ+IAHvx91c5sn81WJu4HKZTPx7SMmMgB/YXs/mZ23W4lvA72rizgi4gT/tbKUu2aHLJgAAAABJRU5ErkJggg==",
       "tierId": "E",
       "fit": "cover",
-      "order": 18
+      "order": 19
     },
     {
       "id": "item-1786843086624",
@@ -254,7 +263,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAKlBMVEUzMjX/8eL/6tH/3smmxNBeY2s9PD87Oj05ODw4Nzo1NDcyMDQwLzIdHR6q1w6rAAAAYklEQVR42p3I0RAAUQiF4VVIYRWuQgoppJDCKqSQQgpHIZetmUvQ91Bn/mfgmr0LX7M2fxvM3LW5m+0CoBphLUIV2IQI9ypvcyM2IVOk6rQqkcxNAIiY38ZMBGzCae81exF+MKza4UImxGYAAAAASUVORK5CYII=",
       "tierId": "A",
       "fit": "cover",
-      "order": 19,
+      "order": 20,
       "description": "HT4 Sword\n6-3 swrvng mace\n2-1 swrvng dia smp"
     },
     {
@@ -264,7 +273,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAiklEQVR42u3TsQ2AIBCFYaaQRoYzDuEShpFkA0N1JFIYQ+kSdpdXeJEr7O7LKyF/QXAkyKDW43UkKFR4zgKqgHT5ElAHC+gCGUgB6fEzsIAugIe0gZ6PaQFdAOf9wCNBA3gXWKAjQKXwJhDCyGuAwHJX3nzuPAIW6AiAlDZejCuvKVlAF2g/s8CnB+vYuej5xPMUAAAAAElFTkSuQmCC",
       "tierId": "A",
       "fit": "cover",
-      "order": 20,
+      "order": 21,
       "description": "swervert el pervert"
     },
     {
@@ -274,7 +283,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABO0lEQVR4AeyUsUrDYBSFT2JjFIfSLYuCozi5O/sOPokP5+DmI+hUEReLolbE5jdpG3u3z7uISHOX/vDBuSTck3vuT/KvuunIsuk60v3zsJdpepnOFXw2H5AXW4VIVkhkcv8qoj8e9jJNL9ObFcQn0C5aEb/iarcUWSaJ+Pc/p0nEP6eX6fgE/Bf2XccnsL1TiHC/pjVc/RjAXK2IT+xjOhOxHoRepuMT8BP0XccnwP2YrmdJ5PrqRqRNC5EmtSJ3tw8i7GXaPEh8An3v3PvFJ1Cn1c7B2/hZZDi5FNnLMhHeB9Pjp1KEvUx7v/gE/E76ruMTeHl8F6lOKpHj0ySiMhPhfTA9ODsSYS/T9DIdn0DfO/d+8QkcHI5EBvNORPsX+oEfwd2J81Ejwl6m6WU6PgE/UN/12hP4baBvAAAA///LgUH/AAAABklEQVQDAKeqrhCfAhNnAAAAAElFTkSuQmCC",
       "tierId": "A",
       "fit": "cover",
-      "order": 21
+      "order": 22
     },
     {
       "id": "item-1786843156596",
@@ -283,7 +292,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAGFBMVEXZiRr/////88z16lr1vUXtpUHWjwCwdQBXjuQbAAAAUklEQVR42q3PQQ1AMQgD0FqYhVqYhVqoBSxg/ydbtvtvRgKEdyroBmxJsoFuRFAljTGnVJWBTZL22QkAJIm7MwDsMzPYkVavCuBGI/fxG9788gGAJVrZlwBzkAAAAABJRU5ErkJggg==",
       "tierId": "F",
       "fit": "cover",
-      "order": 22
+      "order": 23
     },
     {
       "id": "item-1786843656329",
@@ -292,7 +301,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAArElEQVR4Xu2SMQ7EIAwEnYqS5kSXR+QF+f+ruJbMRrGQpXDSuZjGWXbNEiul9CfMLAT9iHFAaDgL/UguYLXWPsIKPaTSG82I5Mng5tATuUC4gWPb+ggPEAYSTy95MoABoSHx9JInAxgQGhJPL3kygAGhIfH0kkdBa+2CZzgL/XKB32+Abxhl+h/g9yi5gNuACByi53OB9Q3Im7zPktDxov++wLl/+kpygeUNfAFSg2QNRYqnqAAAAABJRU5ErkJggg==",
       "tierId": "B",
       "fit": "cover",
-      "order": 23,
+      "order": 24,
       "description": "@Nezotoji\nTrial Mod -> Member"
     },
     {
@@ -302,7 +311,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAhklEQVR4Xu2UsQ2AMAwEvQBFGlrWYkZmQGIBGnqYxSiln8KylBAXX1yTWM7rnESuedKRyMjD69kMIHqLRjj31XBsiwHrPRgggYFHNALOHO8E1nsILngwQHMD+BWXUgy4H8XrxwD5DOCMevMx8DcM4BrAdxwF+yEMkN8Azqw1roHeMAAN0MALD5ZhuZUznWMAAAAASUVORK5CYII=",
       "tierId": "E",
       "fit": "cover",
-      "order": 24
+      "order": 25
     },
     {
       "id": "item-1786842561843",
@@ -311,7 +320,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAAS0lEQVR42s3KoREAIAxD0a7JUHVVOCaoRLIaEYnG5Xgqvf6YD2EOFrkDPQoUaLsCHQkKGhQ6goSCAUXaCa4gSFtcwQ+aNhza0GQILn1O7iBEWr4SAAAAAElFTkSuQmCC",
       "tierId": "E",
       "fit": "cover",
-      "order": 25
+      "order": 26
     },
     {
       "id": "item-1786843431593",
@@ -320,7 +329,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABG0lEQVR4AezTPWoCURQF4JMxpkiREAJCmB2kSJlK7awsBTfhAlyFC3ADNhaCYCdYiJVopWBhoY06IijMIPjzVOyOV1AsnNu8Bx+8B+/33BnnqNwcKDd7AZuATeAqgSAI8Aj5F99bK+dfXUBOePbYXsCRNTtMarhFlkSu930fTO4l59sS6CewGyTBvGEO7PU9Buas2mDym/g0A7DqSwqstTqA6ScgXxD2WD+ByEcezP0rg3UbGTCZ0Nt2DFZc/oJlv6dgCXTA9BOQLwp7rJ+Ambtgx+AH7D/dBDOVHti+3gfLuQuw3TwCthlFwfQTCLvm8jz9BL7icbBozICtCyUwM5vhgufBEPlC3uvc57POff0E5I3DHj89gXsPOgEAAP//uPwB+gAAAAZJREFUAwDqs8RAEfLZoQAAAABJRU5ErkJggg==",
       "tierId": "E",
       "fit": "cover",
-      "order": 26
+      "order": 27
     },
     {
       "id": "item-1786843473055",
@@ -329,7 +338,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAy0lEQVR4Xu2VIQ7CQBBF9xw4FArfAKKmAo3HcSFSAqRNDZLjUFpIuEux/Lei2RAYM+KZye78nz+dbag3k+GTy3YqXHezr2A/6gUWeIENU2E/6rmBwIhu+7nwrJZJvJqFwH7UcwP2CXBt2kMmcKac+dh5Qj03YJ8An0bOlHCmqVDPDdgnEL3NIQicIb+JMdgv0osKbsA6ge6UC22ZCX1VCPfjSujOuYJ+0chZ4AU38PME+H/mHpNHsxb6uhB4nlDPDdgnwDX8N27APIE30I+GSIPEyM4AAAAASUVORK5CYII=",
       "tierId": "D",
       "fit": "cover",
-      "order": 27
+      "order": 28
     },
     {
       "id": "item-1786843279079",
@@ -338,7 +347,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAJFBMVEUGBgbMwbeCcHB8bWx6ZWVwXFtuWVklJCUiISUaGiIXFxoAAACTSSMZAAAAVElEQVR42q3IQQ3AQAhE0VpYC2sBC2sBC1jAAhbGAhYw1zk02fukL4FM/vOPte7SQ1VSlRqATB65c0EJRTP3K6F7yGmoWwmAWcSmCDNACYf255AQXqyJoHFyV3e2AAAAAElFTkSuQmCC",
       "tierId": "B",
       "fit": "cover",
-      "order": 28,
+      "order": 29,
       "description": "im tuff\nbi\nmeow meow :3"
     },
     {
@@ -348,7 +357,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABSklEQVR4AezSQUvDMBgG4Df11uqWpFocs46N7SJuu7mLf7Z3maAnBf0n/gRPutqxSk1PfRdhImK/y0ofSEj4Et58QRRG1bbQzRvWxhXTxlTMaF0xG7v9JIpcfRKGYcUCCH/7CwTqQIEFQQBWrAuwstyAbcpPsHVRgEG5NyZKKSjV2D+BfAKr9xXYxXgE9pHnYFO3znTnECx3+9lsMgbjtXosn4DrUdFfPoGr2SVYbDTYfNADs10NliYJ0qTBe+uxdfXYYj4Fk09AtAHc4fIJxNaAjc7PwF5e38CGgxTMmC4Y763Hw7QPpjtHYPIJuGcQ/eUTOHY9wLLlPZgfT7a8c+sN7pd6/H3/dr1ecgImn4B/47bn8gncPj6D/TaB7Iee8evdPDyBySfg37DtuXwCi+Epdrme9PEXu2rXa/IJtP3m/nn/noB/oD//AgAA///P/XQFAAAABklEQVQDAA8088EekXYsAAAAAElFTkSuQmCC",
       "tierId": "B",
       "fit": "cover",
-      "order": 29,
+      "order": 30,
       "description": "good at redstone"
     },
     {
@@ -358,7 +367,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAvklEQVR4Xu2WPQoCMRBGp7MTAlkwVQ6QY1iZwtZmSy9g6xm8rZ0WY5u8QJbASpopXjOZn49vCIzI+aMlMcYuIjJEU495wgALCAds0dRjngloHGiApc65isflWMH3ph9pAsQE/NuBnLOWjA4kzOc3JCZgvgPvw6I9vvdbxfPqurCesJ8JmO+ALqIl3BHfvfddmL/VzwTMd2BrR+S1nrqM9jMB8x0IIWgJd7o3KaUKEzDfAd5o3Nne8OY0AdMd+AFKOVeqaec4uQAAAABJRU5ErkJggg==",
       "tierId": "F",
       "fit": "cover",
-      "order": 30
+      "order": 31
     },
     {
       "id": "item-1786842416157",
@@ -367,7 +376,7 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAy0lEQVR4Xu2WMQrCQBBFcybFRkRiI5jCRju9Sy7jDbyApZWNnbGT2NiIF4it/wX8bBEMMguvyczOfP7MQrLquGs+qc97wcWJy2c84wd3gXHi8hkPAS0HHtVBoIWME5fPfiHg9w5wZq/6JDDOmbr8cjj4Sgj4fwfcjnTuQAhIdoDvvJiOBcbZwOWzXwjonwO360WY5SOhed4F7sB6NRdYz+4AL4SAzh3gPxpPsZgI3AGy3SwFHvYLAf1zgDPijFNhPdJygLBgKqxHQsAbpXQzZI/Trl8AAAAASUVORK5CYII=",
       "tierId": "F",
       "fit": "cover",
-      "order": 31
+      "order": 32
     },
     {
       "id": "item-1786843848011",
@@ -376,8 +385,17 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAvklEQVR42u2TOwrCUBREXYhdUkVDMCoIgoUWigoagvhBEQW34AIss4EsxtqduAILa7vhNOHlWd/hdJm5J81r9AdDEbViESLNirDDLW82TOAlyA5XMRpPxTzfi9XuLNiZLDJhgv8FPFQlyE83UdUxgZ+gTmm5OYrZeivq/JwJ3IKoHQt+CBEeJexwm3RSYQK3IO32xBMJkkBwXCDscGsCPwEfy/fzFo/XXZQVYYdb3jSBW1AgF6T0DLcFYgKn4Ad4ng39AzSo0wAAAABJRU5ErkJggg==",
       "tierId": "F",
       "fit": "cover",
-      "order": 32,
+      "order": 33,
       "description": "vamip"
+    },
+    {
+      "id": "item-1786898084318-0",
+      "title": "face (25)",
+      "subtitle": "face (25)",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAIVBMVEVvkqjw4NXs2s7p2NvKvcGTssmLqsCxeYFUepFQdo17R1Y3RvuIAAAAUElEQVR42mOgDkhDAuQKhIampYWGQkhyBSh3R0cHA8PMmRASxCNPwMVl1SolpY6OVatcXMgVMDYuLxcEgvJyY2OyBMC+UVICCSgpgbhkCAAAJg6KIe1QxZUAAAAASUVORK5CYII=",
+      "tierId": "unranked",
+      "fit": "cover",
+      "order": 34
     }
   ],
   "githubConfig": {
