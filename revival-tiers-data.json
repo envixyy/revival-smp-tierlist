@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T16:40:33.536Z",
+  "updatedAt": "2026-08-16T16:40:42.810Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -162,7 +162,8 @@
       "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAiElEQVR4Xu2UsQoAMQhDhdKl0K1T//8/vU1OwZMMh0seBBxCKhEq2ow0v88F2AAbULn36pf23p865zittZzGGE5zTicu0N8Av2I2wAbYgIjoW38T3+MC/Q3YcRLizSpgv00JcCDqtykBDkT9NiXAgajfpoQYiKqidMRAVBWlIwaiqigdMRBVxQOUfgmEnOsQoQAAAABJRU5ErkJggg==",
       "tierId": "D",
       "fit": "cover",
-      "order": 9
+      "order": 9,
+      "description": "white sweb"
     },
     {
       "id": "item-1786842631147",
