@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T16:35:57.247Z",
+  "updatedAt": "2026-08-16T16:37:55.240Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -387,15 +387,6 @@
       "fit": "cover",
       "order": 33,
       "description": "vamip"
-    },
-    {
-      "id": "item-1786898084318-0",
-      "title": "face (25)",
-      "subtitle": "face (25)",
-      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAIVBMVEVvkqjw4NXs2s7p2NvKvcGTssmLqsCxeYFUepFQdo17R1Y3RvuIAAAAUElEQVR42mOgDkhDAuQKhIampYWGQkhyBSh3R0cHA8PMmRASxCNPwMVl1SolpY6OVatcXMgVMDYuLxcEgvJyY2OyBMC+UVICCSgpgbhkCAAAJg6KIe1QxZUAAAAASUVORK5CYII=",
-      "tierId": "unranked",
-      "fit": "cover",
-      "order": 34
     }
   ],
   "githubConfig": {
