@@ -1,7 +1,7 @@
 {
   "title": "Revival SMP Tierlist",
   "subtitle": "Community-ranked. Brutally honest.",
-  "updatedAt": "2026-08-16T16:40:42.810Z",
+  "updatedAt": "2026-08-19T19:20:35.997Z",
   "adminPin": "",
   "isPublished": false,
   "categories": [
@@ -128,19 +128,19 @@
       "order": 5
     },
     {
-      "id": "item-1786843211251",
-      "title": "Light",
-      "subtitle": "Light",
-      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA4UlEQVR4Xu2UPQrCQBCF03gCbe0ESSkSJIhYikkhKgZSCvYWNhG9mxewstLCQj1IbPM+wUUE12KKr5qffbyZ2aDdDMsqg3AoMJ5ludBtRQLzGWd9wAIT8HMHkiQtq3BG404qxHFfmPUWAuvZn5gA/w7wDDljxpejlTCJpgLvnvnsbwL8O+CaGePr+UZgPj+yIt8L7GcC/DvAO+YML4ezwJlyJ1jv2hET4N8BzuRxun4Ed4L9XJiA/3OgXmu8hTtAtvlO4MzJiwN8kPBBYgK+doB///14E2g5YT778T0T4N2BJ3ZbXZn2hgufAAAAAElFTkSuQmCC",
+      "id": "item-1786843617874",
+      "title": "vocul",
+      "subtitle": "vocul",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABH0lEQVR4AeySMcrCQBCFH4HIz38IG608gaCNpY0iCoIK6gW8gAew9xzaWNpY2ecWVpZCQgjK6x4T2BSSrEUCH7xhZ2cmbzZoNdtvF1EUvb/BVZtnATx/9QA5B+7HAZTpaAYlDEO40FxqrUVtN54bwCaUHdcD5Bx4PF9QzpcTlKKVaC611qK293MD2ISy43qAgHtSGt09lCzLoBStRHOptRa19qKuV/B7DsRxDGU+m0ApegOaS621qO3933PATlh27N+BJEmgbFdzKP9/DSij4RiKdUhzqbUWtfai9u+A/YOqY/8OpGkK5XoYwIV1SN8Dtesuz7QXtX8H7B9VHft3YL3YQOntbnCx7PThwnWXZ9qL2r8DVe/c9ivdAdvQxh8AAAD//0U9xeMAAAAGSURBVAMAopZS2KgbG5IAAAAASUVORK5CYII=",
       "tierId": "C",
       "fit": "cover",
       "order": 6
     },
     {
-      "id": "item-1786843617874",
-      "title": "vocul",
-      "subtitle": "vocul",
-      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABH0lEQVR4AeySMcrCQBCFH4HIz38IG608gaCNpY0iCoIK6gW8gAew9xzaWNpY2ecWVpZCQgjK6x4T2BSSrEUCH7xhZ2cmbzZoNdtvF1EUvb/BVZtnATx/9QA5B+7HAZTpaAYlDEO40FxqrUVtN54bwCaUHdcD5Bx4PF9QzpcTlKKVaC611qK293MD2ISy43qAgHtSGt09lCzLoBStRHOptRa19qKuV/B7DsRxDGU+m0ApegOaS621qO3933PATlh27N+BJEmgbFdzKP9/DSij4RiKdUhzqbUWtfai9u+A/YOqY/8OpGkK5XoYwIV1SN8Dtesuz7QXtX8H7B9VHft3YL3YQOntbnCx7PThwnWXZ9qL2r8DVe/c9ivdAdvQxh8AAAD//0U9xeMAAAAGSURBVAMAopZS2KgbG5IAAAAASUVORK5CYII=",
+      "id": "item-1786843211251",
+      "title": "Light",
+      "subtitle": "Light",
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA4UlEQVR4Xu2UPQrCQBCF03gCbe0ESSkSJIhYikkhKgZSCvYWNhG9mxewstLCQj1IbPM+wUUE12KKr5qffbyZ2aDdDMsqg3AoMJ5ludBtRQLzGWd9wAIT8HMHkiQtq3BG404qxHFfmPUWAuvZn5gA/w7wDDljxpejlTCJpgLvnvnsbwL8O+CaGePr+UZgPj+yIt8L7GcC/DvAO+YML4ezwJlyJ1jv2hET4N8BzuRxun4Ed4L9XJiA/3OgXmu8hTtAtvlO4MzJiwN8kPBBYgK+doB///14E2g5YT778T0T4N2BJ3ZbXZn2hgufAAAAAElFTkSuQmCC",
       "tierId": "C",
       "fit": "cover",
       "order": 7
